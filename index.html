@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Hide scrollbar for the slider track to keep it clean */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+    <style>
+        /* Hide scrollbar for slider */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- hero section -->
+        <!-- Hero Slider Section -->
+        <section class="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden bg-gray-200 group">
+
+            <!-- Slider Track (holds all slides) -->
+            <div id="slider-track" class="flex h-full w-full transition-transform duration-500 ease-in-out">
+
+                <!-- Slide 1 -->
+                <div class="min-w-full h-full flex-shrink-0 relative">
+                    <img src="./image/hero-img1.png" alt="Hero Image 1"
+                        class="w-full h-full object-cover object-center">
+                    <!-- Optional Overlay/Text -->
+                    <div class="absolute inset-0 bg-black/20"></div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="min-w-full h-full flex-shrink-0 relative">
+                    <!-- Assuming you might change this to img2 later -->
+                    <img src="./image/hero-img1.png" alt="Hero Image 2"
+                        class="w-full h-full object-cover object-center">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="min-w-full h-full flex-shrink-0 relative">
+                    <!-- Assuming you might change this to img3 later -->
+                    <img src="./image/hero-img1.png" alt="Hero Image 3"
+                        class="w-full h-full object-cover object-center">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Arrows (Hidden on small mobile, visible on hover for larger screens) -->
+            <button id="prev-slide"
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white p-2.5 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 md:block hidden z-10 cursor-pointer">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+
+            <button id="next-slide"
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white p-2.5 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 md:block hidden z-10 cursor-pointer">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+
+            <!-- Slider Dots -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
+                <button
+                    class="slider-dot w-3 h-3 rounded-full bg-white transition-all cursor-pointer shadow-md"></button>
+                <button
+                    class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-all cursor-pointer shadow-md"></button>
+                <button
+                    class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-all cursor-pointer shadow-md"></button>
+            </div>
+
+        </section>
+
+        <!-- for product section -->
+
+        <section class="bg-[#eaeaea] font-sans">
+            <div class="max-w-[1200px] mx-auto px-4 py-16">
+                <!-- Section Header -->
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#222222]">Discover Our Product Range</h2>
+                    <!-- Green Underline -->
+                    <div class="w-16 h-[2px] bg-[#53b848] mx-auto mt-4"></div>
+                </div>
+
+                <!-- Slider Container -->
+                <div class="relative flex items-center justify-center">
+
+                    <!-- Left Arrow -->
+                    <button id="prev-btn"
+                        class="absolute left-0 lg:-left-12 z-10 w-8 h-8 flex items-center justify-center rounded-full border border-gray-600 text-gray-700 hover:bg-gray-300 transition-colors cursor-pointer bg-[#eaeaea]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <!-- Slider Viewport -->
+                    <div class="w-full max-w-[900px] overflow-hidden">
+                        <!-- Slider Track -->
+                        <div id="product-track" class="flex transition-transform duration-500 ease-in-out">
+
+                            <!-- Card 1 -->
+                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-4">
+                                <div class="flex flex-col items-center">
+                                    <!-- Image Container -->
+                                    <div
+                                        class="bg-white w-full aspect-square flex items-center justify-center p-4 shadow-sm">
+                                        <img src="./image/solar-panel.png" alt="Solar Panel"
+                                            class="max-w-full max-h-full object-contain">
+                                    </div>
+                                    <!-- Title -->
+                                    <h3 class="mt-4 mb-3 text-[17px] font-bold text-gray-800">Solar Panel</h3>
+                                    <!-- Price Block -->
+                                    <div
+                                        class="w-full bg-[#53b848] text-white text-center py-2.5 text-[15px] font-medium shadow-sm">
+                                        Rs. 0,000.00
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-4">
+                                <div class="flex flex-col items-center">
+                                    <div
+                                        class="bg-white w-full aspect-square flex items-center justify-center p-4 shadow-sm">
+                                        <img src="./image/solar-fold-light.png" alt="Solar Fold Light"
+                                            class="max-w-full max-h-full object-contain">
+                                    </div>
+                                    <h3 class="mt-4 mb-3 text-[17px] font-bold text-gray-800">Solar Fold Light</h3>
+                                    <div
+                                        class="w-full bg-[#53b848] text-white text-center py-2.5 text-[15px] font-medium shadow-sm">
+                                        Rs. 0000.00
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-4">
+                                <div class="flex flex-col items-center">
+                                    <div
+                                        class="bg-white w-full aspect-square flex items-center justify-center p-4 shadow-sm">
+                                        <img src="./image/solar-inveter.png" alt="Solar Inverter"
+                                            class="max-w-full max-h-full object-contain">
+                                    </div>
+                                    <h3 class="mt-4 mb-3 text-[17px] font-bold text-gray-800">Solar Inverter</h3>
+                                    <div
+                                        class="w-full bg-[#53b848] text-white text-center py-2.5 text-[15px] font-medium shadow-sm">
+                                        Rs. 0,000.00
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 (Extra for sliding effect) -->
+                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 px-4">
+                                <div class="flex flex-col items-center">
+                                    <div
+                                        class="bg-white w-full aspect-square flex items-center justify-center p-4 shadow-sm">
+                                        <img src="./image/solar-fold-light.png" alt="Solar Kit"
+                                            class="max-w-full max-h-full object-contain">
+                                    </div>
+                                    <h3 class="mt-4 mb-3 text-[17px] font-bold text-gray-800">Solar Kit</h3>
+                                    <div
+                                        class="w-full bg-[#53b848] text-white text-center py-2.5 text-[15px] font-medium shadow-sm">
+                                        Rs. 0,000.00`
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Right Arrow -->
+                    <button id="next-btn"
+                        class="absolute right-0 lg:-right-12 z-10 w-8 h-8 flex items-center justify-center rounded-full border border-gray-600 text-gray-700 hover:bg-gray-300 transition-colors cursor-pointer bg-[#eaeaea]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="flex justify-center items-center space-x-3 mt-12">
+                    <button class="dot w-3 h-3 rounded-full bg-gray-500 transition-colors"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-white hover:bg-gray-300 transition-colors"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-white hover:bg-gray-300 transition-colors"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-white hover:bg-gray-300 transition-colors"></button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Slider Script -->
+        <section class="bg-[#e6e6e6] font-sans text-gray-800">
+            <div class="max-w-[1000px] mx-auto px-6 pt-16 pb-12">
+                <!-- Section Header -->
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-[32px] font-bold text-[#222222]">Why Switch to Kineto Solar?</h2>
+                    <div class="w-16 h-[1.5px] bg-[#53b848] mx-auto mt-3"></div>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 text-left">
+
+                    <!-- Feature 1 -->
+                    <div>
+                        <h3 class="text-[#53b848] font-bold text-[17px] mb-2">Lower Electricity Bills</h3>
+                        <p class="text-[15px] text-gray-600 leading-relaxed">Generate your own clean power and
+                            significantly reduce monthly energy costs.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div>
+                        <h3 class="text-[#53b848] font-bold text-[17px] mb-2">Sustainable Energy</h3>
+                        <p class="text-[15px] text-gray-600 leading-relaxed">Reduce your carbon footprint while
+                            contributing to a cleaner, greener future.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div>
+                        <h3 class="text-[#53b848] font-bold text-[17px] mb-2">High-Efficiency Solar Solutions</h3>
+                        <p class="text-[15px] text-gray-600 leading-relaxed">Advanced PV modules engineered for maximum
+                            power output and long-term performance.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div>
+                        <h3 class="text-[#53b848] font-bold text-[17px] mb-2">Flexible System Options</h3>
+                        <p class="text-[15px] text-gray-600 leading-relaxed">On-grid, off-grid, and hybrid solutions
+                            tailored to your energy requirements.</p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div>
+                        <h3 class="text-[#53b848] font-bold text-[17px] mb-2">End-to-End Expertise</h3>
+                        <p class="text-[15px] text-gray-600 leading-relaxed">From consultation and design to
+                            installation and maintenance, everything is managed under one roof.</p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div>
+                        <h3 class="text-[#53b848] font-bold text-[17px] mb-2">Reliable Service Network</h3>
+                        <p class="text-[15px] text-gray-600 leading-relaxed">Professional installation, responsive
+                            after-sales support, and ongoing maintenance across India.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Section 2: Customer Review Slider -->
+            <section class="max-w-[1200px] mx-auto px-6 py-12">
+                <!-- Section Header -->
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-[32px] font-bold text-[#222222]">Customer Review</h2>
+                    <div class="w-16 h-[1.5px] bg-[#53b848] mx-auto mt-3"></div>
+                </div>
+
+                <!-- Slider Container -->
+                <div class="relative overflow-hidden group">
+
+                    <!-- Slider Track -->
+                    <div id="review-track" class="flex transition-transform duration-500 ease-in-out">
+
+                        <!-- Review Card 1 -->
+                        <div class="w-full md:w-1/2 flex-shrink-0 px-4">
+                            <div class="bg-white flex h-[180px] shadow-sm">
+                                <!-- Profile Image Placeholder -->
+                                <div class=" h-full bg-gray-300">
+                                    <img src="./image/sumit.png"
+                                        alt="Sumit Agarwal" class="w-full h-full object-cover">
+                                </div>
+                                <!-- Content -->
+                                <div class="w-3/5 p-6 flex flex-col justify-center">
+                                    <h4 class="font-bold text-[17px] text-gray-900 mb-3">Sumit Agarwal</h4>
+                                    <p class="text-gray-600 text-[14px] leading-relaxed">"My electricity bill has
+                                        dropped significantly. Very happy with Kineto Solar."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 2 -->
+                        <div class="w-full md:w-1/2 flex-shrink-0 px-4">
+                            <div class="bg-white flex h-[180px] shadow-sm">
+                                <!-- Profile Image Placeholder -->
+                                <div class="h-full bg-gray-300">
+                                    <img src="./image/puja.png"
+                                        alt="Puja Pandey" class="w-full h-full object-cover">
+                                </div>
+                                <!-- Content -->
+                                <div class="w-3/5 p-6 flex flex-col justify-center">
+                                    <h4 class="font-bold text-[17px] text-gray-900 mb-3">Puja Pandey</h4>
+                                    <p class="text-gray-600 text-[14px] leading-relaxed">Excellent product quality and
+                                        smooth installation Highly recommended!"</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 3 (Duplicate for sliding effect) -->
+                        <div class="w-full md:w-1/2 flex-shrink-0 px-4">
+                            <div class="bg-white flex h-[180px] shadow-sm">
+                                <div class="h-full bg-gray-300">
+                                    <img src="./image/rahul.png"
+                                        alt="Rahul Singh" class="w-full h-full object-cover">
+                                </div>
+                                <div class="w-3/5 p-6 flex flex-col justify-center">
+                                    <h4 class="font-bold text-[17px] text-gray-900 mb-3">Rahul Singh</h4>
+                                    <p class="text-gray-600 text-[14px] leading-relaxed">"Great customer service and the
+                                        panels are working flawlessly."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 4 (Duplicate for sliding effect) -->
+                        <div class="w-full md:w-1/2 flex-shrink-0 px-4">
+                            <div class="bg-white flex h-[180px] shadow-sm">
+                                <div class="h-full bg-gray-300">
+                                    <img src="./image/sumit.png"
+                                        alt="Anita Desai" class="w-full h-full object-cover">
+                                </div>
+                                <div class="w-3/5 p-6 flex flex-col justify-center">
+                                    <h4 class="font-bold text-[17px] text-gray-900 mb-3">Anita Desai</h4>
+                                    <p class="text-gray-600 text-[14px] leading-relaxed">"The whole process from start
+                                        to finish was handled professionally."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Navigation Dots -->
+                    <div class="flex justify-center items-center space-x-3 mt-10">
+                        <button
+                            class="review-dot w-3 h-3 rounded-full bg-gray-800 transition-colors cursor-pointer"></button>
+                        <button
+                            class="review-dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600 transition-colors cursor-pointer"></button>
+                        <button
+                            class="review-dot w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-600 transition-colors cursor-pointer"></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slider Logic -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const track = document.getElementById('review-track');
+                    const dots = document.querySelectorAll('.review-dot');
+                    const cards = track.children;
+
+                    let currentIndex = 0;
+
+                    // Show 1 card on mobile, 2 on desktop
+                    const getItemsVisible = () => {
+                        return window.innerWidth >= 768 ? 2 : 1;
+                    };
+
+                    const updateSlider = () => {
+                        const itemsVisible = getItemsVisible();
+                        const totalCards = cards.length;
+
+                        // Keep index in bounds
+                        if (currentIndex > totalCards - itemsVisible) {
+                            currentIndex = totalCards - itemsVisible;
+                        }
+                        if (currentIndex < 0) currentIndex = 0;
+
+                        // Move track
+                        const percentage = -(currentIndex * (100 / itemsVisible));
+                        track.style.transform = `translateX(${percentage}%)`;
+
+                        // Update Dots
+                        dots.forEach(dot => {
+                            dot.classList.remove('bg-gray-800');
+                            dot.classList.add('bg-gray-400');
+                        });
+
+                        // Calculate which dot should be active
+                        let dotIndex = Math.floor(currentIndex / itemsVisible);
+                        if (dotIndex >= dots.length) dotIndex = dots.length - 1;
+
+                        if (dots[dotIndex]) {
+                            dots[dotIndex].classList.remove('bg-gray-400');
+                            dots[dotIndex].classList.add('bg-gray-800');
+                        }
+                    };
+
+                    // Dot Click Events
+                    dots.forEach((dot, index) => {
+                        dot.addEventListener('click', () => {
+                            const itemsVisible = getItemsVisible();
+                            currentIndex = index * itemsVisible;
+                            updateSlider();
+                        });
+                    });
+
+                    // Handle resizing
+                    window.addEventListener('resize', updateSlider);
+
+                    // Optional: Auto-slide
+                    setInterval(() => {
+                        const itemsVisible = getItemsVisible();
+                        if (currentIndex >= cards.length - itemsVisible) {
+                            currentIndex = 0; // reset
+                        } else {
+                            currentIndex += itemsVisible;
+                        }
+                        updateSlider();
+                    }, 6000); // Slide every 6 seconds
+                });
+            </script>
+        </secti>
+
+
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Async/Await Include Script -->
+    <script>
+        async function loadComponent(containerId, filePath) {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
+                }
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+            } catch (error) {
+                console.error('Error loading component:', error);
+            }
+        }
+
+        async function initLayout() {
+            await loadComponent('header-placeholder', 'include/header.html');
+            await loadComponent('footer-placeholder', 'Include/footer.html');
+        }
+
+        initLayout();
+    </script>
+
+    <!-- slider script -->
+    <!-- Slider JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('slider-track');
+            const slides = track.children;
+            const nextButton = document.getElementById('next-slide');
+            const prevButton = document.getElementById('prev-slide');
+            const dots = document.querySelectorAll('.slider-dot');
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            let autoSlideInterval;
+
+            // Function to update the slider position and dots
+            const updateSlider = (index) => {
+                // Move the track
+                track.style.transform = `translateX(-${index * 100}%)`;
+
+                // Update dots styling
+                dots.forEach(dot => {
+                    dot.classList.remove('bg-white');
+                    dot.classList.add('bg-white/50');
+                });
+                dots[index].classList.remove('bg-white/50');
+                dots[index].classList.add('bg-white');
+
+                currentIndex = index;
+            };
+
+            const nextSlide = () => {
+                const index = (currentIndex + 1) % totalSlides;
+                updateSlider(index);
+            };
+
+            const prevSlide = () => {
+                const index = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlider(index);
+            };
+
+            // Event Listeners for Arrows
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+
+            // Event Listeners for Dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    updateSlider(index);
+                    resetAutoSlide();
+                });
+            });
+
+            // Auto-slide functionality (Changes slide every 5 seconds)
+            const startAutoSlide = () => {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            };
+
+            const resetAutoSlide = () => {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            };
+
+            // Initialize auto-slide
+            startAutoSlide();
+        });
+    </script>
+
+    <!-- product slider -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('product-track');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const dots = document.querySelectorAll('.dot');
+            const cards = track.children;
+
+            let currentIndex = 0;
+
+            // Calculate how many items are visible based on screen width
+            const getItemsVisible = () => {
+                if (window.innerWidth >= 768) return 3; // md breakpoint
+                if (window.innerWidth >= 640) return 2; // sm breakpoint
+                return 1;
+            };
+
+            const updateSlider = () => {
+                const itemsVisible = getItemsVisible();
+                const totalCards = cards.length;
+
+                // Prevent sliding past the last complete set
+                if (currentIndex > totalCards - itemsVisible) {
+                    currentIndex = totalCards - itemsVisible;
+                }
+                if (currentIndex < 0) currentIndex = 0;
+
+                // Calculate width to translate (100% / items visible)
+                const percentage = -(currentIndex * (100 / itemsVisible));
+                track.style.transform = `translateX(${percentage}%)`;
+
+                // Update Dots
+                dots.forEach(dot => {
+                    dot.classList.remove('bg-gray-500');
+                    dot.classList.add('bg-white');
+                });
+                // Math logic to highlight the correct dot based on index
+                let dotIndex = Math.floor(currentIndex / itemsVisible);
+                if (dotIndex >= dots.length) dotIndex = dots.length - 1;
+                if (dots[currentIndex]) {
+                    dots[currentIndex].classList.remove('bg-white');
+                    dots[currentIndex].classList.add('bg-gray-500');
+                }
+            };
+
+            nextBtn.addEventListener('click', () => {
+                const itemsVisible = getItemsVisible();
+                if (currentIndex < cards.length - itemsVisible) {
+                    currentIndex++;
+                    updateSlider();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            });
+
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const itemsVisible = getItemsVisible();
+                    currentIndex = index;
+                    // Prevent pushing past bounds on dot click
+                    if (currentIndex > cards.length - itemsVisible) {
+                        currentIndex = cards.length - itemsVisible;
+                    }
+                    updateSlider();
+                });
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', updateSlider);
+        });
+    </script>
+
+</body>
+
+</html>
