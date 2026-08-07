@@ -297,8 +297,7 @@
                             <div class="bg-white flex h-[180px] shadow-sm">
                                 <!-- Profile Image Placeholder -->
                                 <div class=" h-full bg-gray-300">
-                                    <img src="./image/sumit.png"
-                                        alt="Sumit Agarwal" class="w-full h-full object-cover">
+                                    <img src="./image/sumit.png" alt="Sumit Agarwal" class="w-full h-full object-cover">
                                 </div>
                                 <!-- Content -->
                                 <div class="w-3/5 p-6 flex flex-col justify-center">
@@ -314,8 +313,7 @@
                             <div class="bg-white flex h-[180px] shadow-sm">
                                 <!-- Profile Image Placeholder -->
                                 <div class="h-full bg-gray-300">
-                                    <img src="./image/puja.png"
-                                        alt="Puja Pandey" class="w-full h-full object-cover">
+                                    <img src="./image/puja.png" alt="Puja Pandey" class="w-full h-full object-cover">
                                 </div>
                                 <!-- Content -->
                                 <div class="w-3/5 p-6 flex flex-col justify-center">
@@ -330,8 +328,7 @@
                         <div class="w-full md:w-1/2 flex-shrink-0 px-4">
                             <div class="bg-white flex h-[180px] shadow-sm">
                                 <div class="h-full bg-gray-300">
-                                    <img src="./image/rahul.png"
-                                        alt="Rahul Singh" class="w-full h-full object-cover">
+                                    <img src="./image/rahul.png" alt="Rahul Singh" class="w-full h-full object-cover">
                                 </div>
                                 <div class="w-3/5 p-6 flex flex-col justify-center">
                                     <h4 class="font-bold text-[17px] text-gray-900 mb-3">Rahul Singh</h4>
@@ -345,8 +342,7 @@
                         <div class="w-full md:w-1/2 flex-shrink-0 px-4">
                             <div class="bg-white flex h-[180px] shadow-sm">
                                 <div class="h-full bg-gray-300">
-                                    <img src="./image/sumit.png"
-                                        alt="Anita Desai" class="w-full h-full object-cover">
+                                    <img src="./image/sumit.png" alt="Anita Desai" class="w-full h-full object-cover">
                                 </div>
                                 <div class="w-3/5 p-6 flex flex-col justify-center">
                                     <h4 class="font-bold text-[17px] text-gray-900 mb-3">Anita Desai</h4>
@@ -438,7 +434,7 @@
                     }, 6000); // Slide every 6 seconds
                 });
             </script>
-        </secti>
+            </secti>
 
 
     </main>
@@ -619,6 +615,27 @@
 
             // Handle window resize
             window.addEventListener('resize', updateSlider);
+        });
+    </script>
+
+    <!-- navigate script -->
+    <script>
+        // Event listener attached to the entire document to handle dynamically loaded content
+        document.addEventListener('click', function (event) {
+
+            // Find if the click happened on or inside the menu icon button
+            const menuBtn = event.target.closest('#menu-icon');
+
+            if (menuBtn) {
+                // Find the mobile menu container
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                if (mobileMenu) {
+                    // Toggle between 'hidden' and 'flex' to show/hide the menu
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenu.classList.toggle('flex');
+                }
+            }
         });
     </script>
 
