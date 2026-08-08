@@ -1,61 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
 
     <footer class="bg-[#484848] text-white pt-14 pb-6 font-sans">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-            
+
             <!-- Main Footer Content -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-                
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
                 <!-- Column 1: Logo, Social, Newsletter -->
                 <div class="flex flex-col space-y-6 lg:pr-8">
                     <!-- Logo -->
-                    <img src="../image/footer-logo.png" alt="Kineto Logo" class="h-10 w-auto object-contain object-left mb-2">
-                    
+                    <img src="../image/footer-logo.png" alt="Kineto Logo"
+                        class="h-10 w-auto object-contain object-left mb-2">
+
                     <!-- Social Icons -->
                     <div class="flex space-x-4 items-center">
                         <!-- Facebook -->
                         <a href="#" class="hover:text-gray-300 transition-colors">
-                            <svg class="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+                            <svg class="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z" />
+                            </svg>
                         </a>
                         <!-- Instagram -->
                         <a href="#" class="hover:text-gray-300 transition-colors">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
                         </a>
                         <!-- YouTube -->
                         <a href="#" class="hover:text-gray-300 transition-colors">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M21.582 6.186a2.66 2.66 0 00-1.87-1.88C17.989 3.86 12 3.86 12 3.86s-5.99 0-7.712.446a2.66 2.66 0 00-1.87 1.88C2 7.917 2 12 2 12s0 4.083.418 5.814a2.66 2.66 0 001.87 1.88C6.01 20.14 12 20.14 12 20.14s5.99 0 7.712-.446a2.66 2.66 0 001.87-1.88C22 16.083 22 12 22 12s0-4.083-.418-5.814zM9.912 15.226V8.773L15.65 12l-5.738 3.226z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M21.582 6.186a2.66 2.66 0 00-1.87-1.88C17.989 3.86 12 3.86 12 3.86s-5.99 0-7.712.446a2.66 2.66 0 00-1.87 1.88C2 7.917 2 12 2 12s0 4.083.418 5.814a2.66 2.66 0 001.87 1.88C6.01 20.14 12 20.14 12 20.14s5.99 0 7.712-.446a2.66 2.66 0 001.87-1.88C22 16.083 22 12 22 12s0-4.083-.418-5.814zM9.912 15.226V8.773L15.65 12l-5.738 3.226z" />
+                            </svg>
                         </a>
                         <!-- LinkedIn -->
                         <a href="#" class="hover:text-gray-300 transition-colors">
-                            <svg class="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+                            <svg class="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+                            </svg>
                         </a>
                         <!-- WhatsApp -->
                         <a href="#" class="hover:text-gray-300 transition-colors">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 2C6.49 2 2 6.494 2 12.036c0 1.776.467 3.513 1.353 5.04L2 22l5.074-1.332c1.488.807 3.167 1.233 4.957 1.233 5.54 0 10.03-4.493 10.03-10.035C22.062 6.494 17.572 2 12.031 2zm5.556 14.544c-.236.666-1.378 1.282-1.899 1.334-.52.052-1.157.075-3.155-.75-2.417-1-3.957-3.447-4.075-3.604-.118-.158-.971-1.291-.971-2.463 0-1.173.612-1.748.831-1.986.22-.237.476-.296.634-.296.158 0 .316 0 .454.006.145.006.337-.052.525.4.198.473.67 1.638.729 1.756.059.118.099.256.02.414-.078.158-.118.256-.236.395-.118.138-.25.31-.355.414-.118.118-.242.247-.105.483.138.236.613 1.01 1.312 1.63.905.804 1.666 1.05 1.902 1.168.237.118.375.099.514-.059.138-.158.592-.69.75-.928.158-.236.316-.197.533-.118.217.079 1.382.65 1.618.77.237.118.395.177.454.276.059.099.059.572-.177 1.238z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.031 2C6.49 2 2 6.494 2 12.036c0 1.776.467 3.513 1.353 5.04L2 22l5.074-1.332c1.488.807 3.167 1.233 4.957 1.233 5.54 0 10.03-4.493 10.03-10.035C22.062 6.494 17.572 2 12.031 2zm5.556 14.544c-.236.666-1.378 1.282-1.899 1.334-.52.052-1.157.075-3.155-.75-2.417-1-3.957-3.447-4.075-3.604-.118-.158-.971-1.291-.971-2.463 0-1.173.612-1.748.831-1.986.22-.237.476-.296.634-.296.158 0 .316 0 .454.006.145.006.337-.052.525.4.198.473.67 1.638.729 1.756.059.118.099.256.02.414-.078.158-.118.256-.236.395-.118.138-.25.31-.355.414-.118.118-.242.247-.105.483.138.236.613 1.01 1.312 1.63.905.804 1.666 1.05 1.902 1.168.237.118.375.099.514-.059.138-.158.592-.69.75-.928.158-.236.316-.197.533-.118.217.079 1.382.65 1.618.77.237.118.395.177.454.276.059.099.059.572-.177 1.238z" />
+                            </svg>
                         </a>
                     </div>
-                    
+
                     <!-- Newsletter -->
                     <div class="mt-2">
-                        <h3 class="text-[17px] font-bold mb-3 tracking-wide">Join our newsletter</h3>
-                        <form class="flex w-full max-w-sm items-center bg-[#e8e8e8] rounded-full p-1 border border-transparent focus-within:border-gray-400 transition-all">
-                            <input 
-                                type="email" 
-                                placeholder="Email address" 
-                                class="w-full bg-transparent text-gray-800 px-4 py-2 text-[15px] outline-none placeholder-gray-500 rounded-l-full"
-                                required
-                            >
-                            <button type="submit" class="bg-[#50b748] hover:bg-[#439e3d] text-white font-medium px-6 py-2 rounded-full transition-colors whitespace-nowrap text-[15px]">
+                        <h3 class="text-[17px] font-bold mb-3 tracking-wide text-white">Join our newsletter</h3>
+
+                        <!-- Added max-w-xs for mobile, md:max-w-sm for desktop to control width -->
+                        <form
+                            class="flex w-full max-w-xs md:max-w-sm items-center bg-[#f0f0f0] rounded-full p-1 border border-transparent focus-within:border-gray-400 transition-all">
+
+                            <!-- min-w-0 ensures the input doesn't force the button out of the pill on tiny screens -->
+                            <input type="email" placeholder="Email address"
+                                class="w-full min-w-0 bg-transparent text-gray-800 px-3 md:px-4 py-1.5 md:py-2 text-[14px] md:text-[15px] outline-none placeholder-gray-500 rounded-l-full"
+                                required>
+
+                            <!-- Adjusted padding and text size for mobile, increased font weight to match design -->
+                            <button type="submit"
+                                class="bg-[#50b748] hover:bg-[#439e3d] text-white font-bold px-4 md:px-6 py-1.5 md:py-2 rounded-full transition-colors whitespace-nowrap text-[14px] md:text-[15px] shadow-sm">
                                 Subscribe
                             </button>
+
                         </form>
                     </div>
                 </div>
@@ -65,8 +89,10 @@
                     <h3 class="text-[17px] font-bold mb-4 tracking-wide">Categories</h3>
                     <ul class="flex flex-col space-y-2.5">
                         <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Solar Module</a></li>
-                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Solar Inverter</a></li>
-                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Solar Accessories</a></li>
+                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Solar Inverter</a>
+                        </li>
+                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Solar Accessories</a>
+                        </li>
                         <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Solar Kit</a></li>
                         <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Save More</a></li>
                     </ul>
@@ -77,10 +103,11 @@
                     <!-- Customer Service -->
                     <h3 class="text-[17px] font-bold mb-4 tracking-wide">Customer Service</h3>
                     <ul class="flex flex-col space-y-2.5 mb-8">
-                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Raise A Complaint</a></li>
+                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Raise A Complaint</a>
+                        </li>
                         <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">contact us</a></li>
                     </ul>
-                    
+
                     <!-- Quick Links -->
                     <h3 class="text-[17px] font-bold mb-4 tracking-wide">Quick Links</h3>
                     <ul class="flex flex-col space-y-2.5">
@@ -92,19 +119,27 @@
                 <div>
                     <h3 class="text-[17px] font-bold mb-4 tracking-wide">Policies & Terms</h3>
                     <ul class="flex flex-col space-y-2.5">
-                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">website usage terms</a></li>
-                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">payment & refund terms</a></li>
-                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">order cancellation policy</a></li>
-                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors leading-snug block">customer responsibilities<br>& liabilities</a></li>
-                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">merchant / company obligations</a></li>
-                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">contact & support details</a></li>
+                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">website usage
+                                terms</a></li>
+                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">payment & refund
+                                terms</a></li>
+                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">order cancellation
+                                policy</a></li>
+                        <li><a href="#"
+                                class="text-[15px] hover:text-[#50b748] transition-colors leading-snug block">customer
+                                responsibilities<br>& liabilities</a></li>
+                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">merchant / company
+                                obligations</a></li>
+                        <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">contact & support
+                                details</a></li>
                     </ul>
                 </div>
 
             </div>
 
             <!-- Bottom Copyright and Links Bar -->
-            <div class="mt-14 border-t border-gray-500 pt-5 flex flex-col md:flex-row justify-between items-center text-[13.5px]">
+            <div
+                class="mt-14 border-t border-gray-500 pt-5 flex flex-col md:flex-row justify-between items-center text-[13.5px]">
                 <p class="mb-4 md:mb-0">© 2026 Kineto Group</p>
                 <div class="flex flex-wrap justify-center items-center space-x-2 md:space-x-3">
                     <a href="#" class="hover:text-white text-gray-100 transition-colors">SiteMap</a>
@@ -120,7 +155,10 @@
             </div>
 
         </div>
+
+        <!-- End of Container -->
     </footer>
 
 </body>
+
 </html>
