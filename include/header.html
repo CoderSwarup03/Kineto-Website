@@ -12,26 +12,43 @@
 
     <header class="w-full pt-4 relative bg-white" id="header-placeholder">
         <!-- Top Section: Logo, Nav, Contact -->
-        <div class="max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center relative z-20 bg-white">
+        <div class="max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center relative z-40 bg-white">
 
             <!-- Logo -->
             <div class="flex-shrink-0">
-                <img src="../image/logo-kineto.svg" alt="Kineto - Plug in to the future" class="h-12 object-contain">
+                <a href="../index.html">
+                    <img src="../image/logo-kineto.svg" alt="Kineto - Plug in to the future"
+                        class="h-12 object-contain">
+                </a>
             </div>
 
             <!-- Navigation (Desktop) -->
             <nav class="hidden lg:flex space-x-10 items-center mt-2">
-                <a href="#" class="text-[#000000] font-semibold text-sm border-b-[3px] border-[#4caf50] pb-1">Home</a>
-                <a href="#" class="text-[#000000] font-semibold text-sm hover:text-[#4caf50] pb-1">Products</a>
-                <a href="#" class="text-[#000000] font-semibold text-sm hover:text-[#4caf50] pb-1">Solutions</a>
-                <a href="#" class="text-[#000000] font-semibold text-sm hover:text-[#4caf50] pb-1">Projects</a>
-                <a href="#" class="text-[#000000] font-semibold text-sm hover:text-[#4caf50] pb-1">Dealers</a>
-                <a href="#" class="text-[#000000] font-semibold text-sm hover:text-[#4caf50] pb-1">Support</a>
+                <a href="../index.html" data-nav="home"
+                    class="desktop-link text-[#000000] font-semibold text-sm border-b-[3px] border-transparent hover:text-[#4caf50] pb-1">Home</a>
+
+                <!-- Products Toggle Button -->
+                <button id="desktop-products-btn" data-nav="products"
+                    class="desktop-link text-[#000000] font-semibold text-sm border-b-[3px] border-transparent hover:text-[#4caf50] pb-1 flex items-center cursor-pointer focus:outline-none">
+                    Products
+                    <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+
+                <a href="../solutions.html" data-nav="solutions"
+                    class="desktop-link text-[#000000] font-semibold text-sm border-b-[3px] border-transparent hover:text-[#4caf50] pb-1">Solutions</a>
+                <a href="../projects.html" data-nav="projects"
+                    class="desktop-link text-[#000000] font-semibold text-sm border-b-[3px] border-transparent hover:text-[#4caf50] pb-1">Projects</a>
+                <a href="../dealers.html" data-nav="dealers"
+                    class="desktop-link text-[#000000] font-semibold text-sm border-b-[3px] border-transparent hover:text-[#4caf50] pb-1">Dealers</a>
+                <a href="../support.html" data-nav="support"
+                    class="desktop-link text-[#000000] font-semibold text-sm border-b-[3px] border-transparent hover:text-[#4caf50] pb-1">Support</a>
             </nav>
 
             <!-- Contact Info (Desktop) -->
             <div class="hidden md:flex flex-col space-y-1.5">
-                <!-- Phone -->
                 <div class="flex items-center space-x-2 text-gray-700 text-sm">
                     <svg class="w-3.5 h-3.5 text-[#4caf50] fill-current" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512">
@@ -40,7 +57,6 @@
                     </svg>
                     <span class="tracking-wide text-[15px] text-gray-600 font-medium">+91 086977 77888</span>
                 </div>
-                <!-- Email -->
                 <div class="flex items-center space-x-2 text-gray-700 text-sm">
                     <svg class="w-3.5 h-3.5 text-[#4caf50] fill-current" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512">
@@ -52,8 +68,8 @@
                 </div>
             </div>
 
-            <!-- menu icon (Mobile only) -->
-            <button id="menu-icon" class="lg:hidden focus:outline-none cursor-pointer">
+            <!-- Hamburger menu icon (Mobile only) -->
+            <button id="menu-icon" class="lg:hidden focus:outline-none cursor-pointer p-2 z-50">
                 <svg class="w-7 h-7 text-[#4caf50]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -62,18 +78,57 @@
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown (Hidden by default) -->
-        <div id="mobile-menu"
-            class="hidden absolute top-full left-0 w-full bg-white shadow-xl z-10 border-t border-gray-100 lg:hidden flex-col">
-            <nav class="flex flex-col p-6 space-y-5">
-                <a href="#" class="text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Home</a>
-                <a href="#" class="text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Products</a>
-                <a href="#" class="text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Solutions</a>
-                <a href="#" class="text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Projects</a>
-                <a href="#" class="text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Dealers</a>
-                <a href="#" class="text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Support</a>
+        <!-- Desktop Products Submenu -->
+        <div id="desktop-products-submenu"
+            class="hidden absolute left-0 w-full bg-[#53b848] z-30 shadow-sm border-t border-[#4caf50]">
+            <div class="max-w-[1400px] mx-auto px-6 py-2 flex space-x-12 lg:justify-center">
+                <a href="../solar-panel.html" class="text-white text-[15.5px] font-medium hover:text-gray-100 transition-colors">Solar
+                    Panel</a>
+                <a href="../solar-led-light.html" class="text-[#000000] text-[15.5px] font-medium hover:text-white transition-colors">Solar
+                    Led Lights</a>
+                <a href="../solar-inverter.html" class="text-[#000000] text-[15.5px] font-medium hover:text-white transition-colors">Solar
+                    Inverter</a>
+            </div>
+        </div>
 
-                <!-- Mobile Contact Info shown on very small screens (phones) -->
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden absolute top-full left-0 w-full bg-white shadow-xl z-50 border-t border-gray-100 lg:hidden flex-col">
+            <nav class="flex flex-col p-6 space-y-5">
+                <a href="../index.html" data-nav="home"
+                    class="mobile-link text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Home</a>
+
+                <!-- Mobile Products Accordion Toggle -->
+                <div class="flex flex-col space-y-3">
+                    <button id="mobile-products-btn" data-nav="products"
+                        class="mobile-link flex justify-between items-center text-[#000000] font-semibold text-[15px] w-full text-left focus:outline-none hover:text-[#4caf50]">
+                        <span>Products</span>
+                        <svg id="mobile-products-icon" class="w-4 h-4 transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="mobile-products-submenu"
+                        class="hidden flex-col space-y-3 pl-4 border-l-2 border-[#4caf50] mt-1">
+                        <a href="../solar-panel.html" class="text-gray-600 font-medium text-[14px] hover:text-[#4caf50]">Solar Panel</a>
+                        <a href="../solar-led-light.html" class="text-gray-600 font-medium text-[14px] hover:text-[#4caf50]">Solar Led
+                            Lights</a>
+                        <a href="../solar-inverter.html" class="text-gray-600 font-medium text-[14px] hover:text-[#4caf50]">Solar
+                            Inverter</a>
+                    </div>
+                </div>
+
+                <a href="../solutions.html" data-nav="solutions"
+                    class="mobile-link text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Solutions</a>
+                <a href="../projects.html" data-nav="projects"
+                    class="mobile-link text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Projects</a>
+                <a href="../dealers.html" data-nav="dealers"
+                    class="mobile-link text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Dealers</a>
+                <a href="../support.html" data-nav="support"
+                    class="mobile-link text-[#000000] font-semibold text-[15px] hover:text-[#4caf50]">Support</a>
+
+                <!-- Mobile Contact Info -->
                 <div class="pt-5 border-t border-gray-200 flex flex-col space-y-4 md:hidden">
                     <a href="tel:+9108697777888"
                         class="flex items-center text-sm font-medium text-gray-600 hover:text-[#4caf50]">
@@ -84,30 +139,32 @@
                         </svg>
                         +91 086977 77888
                     </a>
-                    <a href="mailto:support@kinetoindia.com"
-                        class="flex items-center text-sm font-medium text-gray-600 hover:text-[#4caf50]">
-                        <svg class="w-4 h-4 mr-2 text-[#4caf50] fill-current" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512">
-                            <path
-                                d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
-                        </svg>
-                        support@kinetoindia.com
-                    </a>
                 </div>
             </nav>
         </div>
 
         <!-- Bottom Section: Search Bar -->
-        <div class="max-w-[750px] mx-auto px-6 pb-6 pt-2">
-            <button
-                class="w-full bg-[#efefef] hover:bg-gray-200 transition-colors flex items-center justify-center py-2.5 rounded-[2px]">
-                <svg class="w-4 h-4 mr-2 text-[#222222]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-                <span class="text-[13px] font-semibold text-[#000000]">Search for products</span>
-            </button>
+        <div class="max-w-[750px] mx-auto px-6 pb-6 pt-0 relative z-0 mt-12">
+            <form id="search-form" class="w-full relative flex items-center">
+                <div class="absolute left-4 z-20 pointer-events-none text-gray-700" id="search-icon">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <input type="text" id="search-input" placeholder="Search for products"
+                    class="w-full bg-[#efefef] hover:bg-gray-200 focus:bg-gray-200 transition-colors py-2.5 pl-10 pr-12 rounded-[2px] text-[14px] font-semibold text-[#000000] outline-none placeholder-gray-600 relative z-10"
+                    autocomplete="off">
+                <button type="button" id="clear-search-btn"
+                    class="absolute right-3 top-1/2 transform -translate-y-1/2 p-1.5 text-gray-500 hover:text-black cursor-pointer focus:outline-none z-30 opacity-0 pointer-events-none transition-opacity duration-200">
+                    <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </form>
         </div>
     </header>
 </body>

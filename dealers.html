@@ -72,153 +72,149 @@
 
         </section>
 
-        <!-- for product section -->
-        <section class="bg-[#e9e9e9] font-sans">
-            <section class="max-w-[1200px] mx-auto px-6 py-16 text-center">
+        <!-- for dealer section -->
+        <section class="bg-[#e6e6e6] font-sans pb-20">
+            <div class="max-w-[1200px] mx-auto px-6 pt-16 text-center">
 
                 <!-- Section Header -->
-                <div class="mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#222222]">Our Products</h2>
+                <div class="mb-8">
+                    <h2 class="text-3xl md:text-[32px] font-bold text-[#222222]">Find Dealers</h2>
                     <!-- Green Underline -->
-                    <div class="w-16 h-[2px] bg-[#53b848] mx-auto mt-4"></div>
+                    <div class="w-10 h-[2px] bg-[#53b848] mx-auto mt-3"></div>
                 </div>
 
-                <!-- Product Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] mx-auto">
+                <!-- Search Form & Location Button -->
+                <div class="max-w-[500px] mx-auto mb-10">
+                    <!-- Search Input Form -->
+                    <form id="dealer-search-form" class="relative flex items-center shadow-sm w-full bg-white mb-2">
+                        <!-- Search Icon -->
+                        <div class="absolute left-4 z-10 pointer-events-none text-gray-800">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
 
-                    <!-- Product Card 1 (Visible) -->
-                    <div class="flex flex-col items-center">
-                        <!-- Image Container -->
-                        <div class="bg-white w-full aspect-square flex items-center justify-center p-6 shadow-sm">
-                            <img src="./image/kineto2wp.png" alt="Kineto 20Wp 12V Panel"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <!-- Title -->
-                        <h3 class="mt-4 mb-3 text-[15px] font-bold text-gray-800">Kineto 20Wp 12V Panel</h3>
-                        <!-- Price Block -->
-                        <div
-                            class="w-full bg-[#5bbd55] text-white text-center py-2.5 text-[14px] font-medium shadow-sm">
-                            Rs. 12000.00
-                        </div>
-                    </div>
+                        <!-- Typing Input Field -->
+                        <input type="text" id="dealer-location-input"
+                            placeholder="Enter your location (e.g., Delhi, Mumbai)"
+                            class="w-full bg-transparent py-2.5 pl-10 pr-4 text-[13px] font-medium text-gray-800 outline-none placeholder-gray-500"
+                            autocomplete="off" required>
+                        <!-- Hidden submit button to allow 'Enter' key functionality -->
+                        <button type="submit" class="hidden">Search</button>
+                    </form>
 
-                    <!-- Product Card 2 (Visible) -->
-                    <div class="flex flex-col items-center">
-                        <div class="bg-white w-full aspect-square flex items-center justify-center p-6 shadow-sm">
-                            <img src="./image/kineto45wp.png" alt="Kineto 45Wp 12V Panel"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-4 mb-3 text-[15px] font-bold text-gray-800">Kineto 45Wp 12V Panel</h3>
-                        <div
-                            class="w-full bg-[#5bbd55] text-white text-center py-2.5 text-[14px] font-medium shadow-sm">
-                            Rs. 14000.00
-                        </div>
-                    </div>
-
-                    <!-- Product Card 3 (Visible) -->
-                    <div class="flex flex-col items-center">
-                        <div class="bg-white w-full aspect-square flex items-center justify-center p-6 shadow-sm">
-                            <img src="./image/kineto50wp.png" alt="Kineto 50Wp 12V Panel"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-4 mb-3 text-[15px] font-bold text-gray-800">Kineto 50Wp 12V Panel</h3>
-                        <div
-                            class="w-full bg-[#5bbd55] text-white text-center py-2.5 text-[14px] font-medium shadow-sm">
-                            Rs. 15000.00
-                        </div>
-                    </div>
-
-                    <!-- Product Card 4 (Hidden Initially) -->
-                    <div class="extra-product hidden flex-col items-center">
-                        <div class="bg-white w-full aspect-square flex items-center justify-center p-6 shadow-sm">
-                            <img src="./image/kineto22wp.png" alt="Kineto 22Wp 12V Panel"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-4 mb-3 text-[15px] font-bold text-gray-800">Kineto 22Wp 12V Panel</h3>
-                        <div
-                            class="w-full bg-[#5bbd55] text-white text-center py-2.5 text-[14px] font-medium shadow-sm">
-                            Rs. 12000.00
-                        </div>
-                    </div>
-
-                    <!-- Product Card 5 (Hidden Initially) -->
-                    <div class="extra-product hidden flex-col items-center">
-                        <div class="bg-white w-full aspect-square flex items-center justify-center p-6 shadow-sm">
-                            <img src="./image/kineto45wp.png" alt="Kineto 45Wp 12V Panel"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-4 mb-3 text-[15px] font-bold text-gray-800">Kineto 45Wp 12V Panel</h3>
-                        <div
-                            class="w-full bg-[#5bbd55] text-white text-center py-2.5 text-[14px] font-medium shadow-sm">
-                            Rs. 14000.00
-                        </div>
-                    </div>
-
-                    <!-- Product Card 6 (Hidden Initially) -->
-                    <div class="extra-product hidden flex-col items-center">
-                        <div class="bg-white w-full aspect-square flex items-center justify-center p-6 shadow-sm">
-                            <img src="./image/kineto60wp.png" alt="Kineto 60Wp 12V Panel"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-4 mb-3 text-[15px] font-bold text-gray-800">Kineto 60Wp 12V Panel</h3>
-                        <div
-                            class="w-full bg-[#5bbd55] text-white text-center py-2.5 text-[14px] font-medium shadow-sm">
-                            Rs. 16000.00
-                        </div>
-                    </div>
-                    
-                    <!-- Product Card 7 (Hidden Initially) -->
-                    <div class="extra-product hidden flex-col items-center">
-                        <div class="bg-white w-full aspect-square flex items-center justify-center p-6 shadow-sm">
-                            <img src="./image/kineto65wp.png" alt="Kineto 65Wp 12V Panel"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-4 mb-3 text-[15px] font-bold text-gray-800">Kineto 65Wp 12V Panel</h3>
-                        <div
-                            class="w-full bg-[#5bbd55] text-white text-center py-2.5 text-[14px] font-medium shadow-sm">
-                            Rs. 16000.00
-                        </div>
-                    </div>
-
-                    <!-- Product Card 8 (Hidden Initially) -->
-                    <div class="extra-product hidden flex-col items-center">
-                        <div class="bg-white w-full aspect-square flex items-center justify-center p-6 shadow-sm">
-                            <img src="./image/kineto70wp.png" alt="Kineto 70Wp 12V Panel"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-4 mb-3 text-[15px] font-bold text-gray-800">Kineto 70Wp 12V Panel</h3>
-                        <div
-                            class="w-full bg-[#5bbd55] text-white text-center py-2.5 text-[14px] font-medium shadow-sm">
-                            Rs. 16000.00
-                        </div>
-                    </div>
-
-                    <!-- Product Card 9 (Hidden Initially) -->
-                    <div class="extra-product hidden flex-col items-center">
-                        <div class="bg-white w-full aspect-square flex items-center justify-center p-6 shadow-sm">
-                            <img src="./image/kineto80wp.png" alt="Kineto 80Wp 12V Panel"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-4 mb-3 text-[15px] font-bold text-gray-800">Kineto 80Wp 12V Panel</h3>
-                        <div
-                            class="w-full bg-[#5bbd55] text-white text-center py-2.5 text-[14px] font-medium shadow-sm">
-                            Rs. 16000.00
-                        </div>
-                    </div>
-                </div>
-
-                <!-- See More Button -->
-                <div class="mt-10">
-                    <button id="see-more-btn"
-                        class="bg-[#5bbd55] hover:bg-[#4ea848] text-gray-900 text-[14px] px-5 py-1.5 shadow-sm transition-colors cursor-pointer">
-                        See more
+                    <!-- Geolocation Button -->
+                    <button type="button" id="use-current-location-btn"
+                        class="text-[13px] font-medium text-gray-700 hover:text-[#53b848] transition-colors cursor-pointer focus:outline-none flex items-center justify-center mx-auto">
+                        <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Use current location
                     </button>
                 </div>
 
-            </section>
+                <!-- Embedded Interactive Google Map -->
+                <div class="max-w-[1000px] mx-auto overflow-hidden shadow-md border border-gray-300 bg-white">
+                    <iframe id="dealer-map-iframe" class="w-full h-[350px] md:h-[450px]" frameborder="0"
+                        style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q=India&output=embed">
+                    </iframe>
+                </div>
 
+            </div>
 
+            <!-- Location Search & Map Update Script -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const searchForm = document.getElementById('dealer-search-form');
+                    const locationInput = document.getElementById('dealer-location-input');
+                    const useCurrentLocationBtn = document.getElementById('use-current-location-btn');
+                    const mapIframe = document.getElementById('dealer-map-iframe');
+
+                    // Function to update the Google Map iframe source
+                    const updateMapLocation = (query) => {
+                        // Encode the query so it's URL-safe (e.g., handles spaces and special characters)
+                        const encodedQuery = encodeURIComponent(query);
+                        mapIframe.src = `https://www.google.com/maps?q=${encodedQuery}&output=embed`;
+                    };
+
+                    // 1. Handle Typed Search Submission
+                    searchForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const query = locationInput.value.trim();
+
+                        if (query) {
+                            // Update map to show the typed location
+                            updateMapLocation(query);
+                            locationInput.blur(); // Remove focus from keyboard
+                        }
+                    });
+
+                    // 2. Handle "Use current location" Click (Geolocation API)
+                    useCurrentLocationBtn.addEventListener('click', () => {
+
+                        if (navigator.geolocation) {
+                            const originalText = useCurrentLocationBtn.innerHTML;
+                            useCurrentLocationBtn.innerHTML = "Detecting location...";
+                            useCurrentLocationBtn.disabled = true;
+
+                            navigator.geolocation.getCurrentPosition(
+                                // Success Callback
+                                (position) => {
+                                    const lat = position.coords.latitude;
+                                    const lng = position.coords.longitude;
+
+                                    useCurrentLocationBtn.innerHTML = originalText;
+                                    useCurrentLocationBtn.disabled = false;
+
+                                    // Fill the input with coordinates
+                                    const coordsStr = `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+                                    locationInput.value = coordsStr;
+
+                                    // Update map using the exact coordinates
+                                    updateMapLocation(coordsStr);
+                                },
+                                // Error Callback
+                                (error) => {
+                                    useCurrentLocationBtn.innerHTML = originalText;
+                                    useCurrentLocationBtn.disabled = false;
+                                    console.error("Geolocation error:", error);
+
+                                    switch (error.code) {
+                                        case error.PERMISSION_DENIED:
+                                            alert("Location request denied. Please type your city or state manually.");
+                                            break;
+                                        case error.POSITION_UNAVAILABLE:
+                                            alert("Location information is unavailable right now.");
+                                            break;
+                                        case error.TIMEOUT:
+                                            alert("The request to get user location timed out.");
+                                            break;
+                                        default:
+                                            alert("An unknown error occurred.");
+                                            break;
+                                    }
+                                },
+                                // Options
+                                { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+                            );
+                        } else {
+                            alert("Geolocation is not supported by your browser. Please type your location manually.");
+                        }
+                    });
+                });
+            </script>
         </section>
+
+
     </main>
     <div id="footer-placeholder"></div>
 
@@ -245,7 +241,6 @@
         initLayout();
     </script>
 
-   
 
     <!-- hero slider -->
     <script>
@@ -402,7 +397,7 @@
         });
     </script>
 
-!-- product sub script -->
+    <!-- Active Navigation State Logic -->
     <script>
         // --- 1. Active Navigation State Logic ---
         function setActiveNav(navName) {

@@ -366,7 +366,7 @@
                 </div>
             </section>
 
-            <!-- Slider Logic -->
+            <!--review slider Logic -->
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
                     const track = document.getElementById('review-track');
@@ -434,9 +434,7 @@
                     }, 6000); // Slide every 6 seconds
                 });
             </script>
-            </secti>
-
-
+        </section>
     </main>
 
     <!-- Footer Placeholder -->
@@ -618,27 +616,210 @@
         });
     </script>
 
-    <!-- navigate script -->
+    <!-- search script -->
     <script>
-        // Event listener attached to the entire document to handle dynamically loaded content
+        // 1. Show/Hide the "X" when typing
+        document.addEventListener('input', function (event) {
+            if (event.target && event.target.id === 'search-input') {
+                const searchInput = event.target;
+                const searchIcon = document.getElementById('search-icon');
+                const clearBtn = document.getElementById('clear-search-btn');
+
+                if (searchInput.value.length > 0) {
+                    // Hide magnifying glass
+                    if (searchIcon) searchIcon.style.opacity = '0';
+
+                    // Show X button
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        clearBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    }
+                } else {
+                    // Show magnifying glass
+                    if (searchIcon) searchIcon.style.opacity = '1';
+
+                    // Hide X button
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                        clearBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                }
+            }
+        });
+
+        // 2. Handle the "X" click
+        document.addEventListener('click', function (event) {
+            const clearBtn = event.target.closest('#clear-search-btn');
+
+            if (clearBtn) {
+                const searchInput = document.getElementById('search-input');
+                const searchIcon = document.getElementById('search-icon');
+
+                if (searchInput) {
+                    searchInput.value = '';
+                    searchInput.focus(); // Keep cursor in the box
+                }
+
+                // Hide the "X"
+                clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                clearBtn.classList.add('opacity-0', 'pointer-events-none');
+
+                // Show the magnifying glass
+                if (searchIcon) searchIcon.style.opacity = '1';
+            }
+        });
+    </script>
+    <!-- product sub script -->
+    <script>
+        // --- 1. Active Navigation State Logic ---
+        function setActiveNav(navName) {
+            // Reset all Desktop Links to default colors
+            document.querySelectorAll('.desktop-link').forEach(link => {
+                link.classList.remove('border-[#4caf50]', 'text-[#4caf50]');
+                link.classList.add('border-transparent', 'text-[#000000]');
+            });
+
+            // Reset all Mobile Links to default colors
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.classList.remove('text-[#4caf50]');
+                link.classList.add('text-[#000000]');
+            });
+
+            // Set the Active state for the matched link
+            if (navName) {
+                document.querySelectorAll(`[data-nav="${navName}"]`).forEach(el => {
+                    if (el.classList.contains('desktop-link')) {
+                        el.classList.remove('border-transparent', 'text-[#000000]');
+                        el.classList.add('border-[#4caf50]', 'text-[#4caf50]');
+                    }
+                    if (el.classList.contains('mobile-link')) {
+                        el.classList.remove('text-[#000000]');
+                        el.classList.add('text-[#4caf50]');
+                    }
+                });
+            }
+        }
+
+        // Auto-detect the current page URL to set the active menu item
+        document.addEventListener('DOMContentLoaded', () => {
+            // We use a tiny timeout in case the header is loaded dynamically via JS fetch()
+            setTimeout(() => {
+                const currentPath = window.location.pathname.toLowerCase();
+                if (currentPath.includes('product')) setActiveNav('products');
+                else if (currentPath.includes('solution')) setActiveNav('solutions');
+                else if (currentPath.includes('project')) setActiveNav('projects');
+                else if (currentPath.includes('dealer')) setActiveNav('dealers');
+                else if (currentPath.includes('support')) setActiveNav('support');
+                else setActiveNav('home'); // Default to home
+            }, 150);
+        });
+
+        // --- 2. Global Click Logic for Menus and Search Bar ---
         document.addEventListener('click', function (event) {
 
-            // Find if the click happened on or inside the menu icon button
+            // Instant visual update when clicking a link (optional, as the page reload will also handle it)
+            const navItem = event.target.closest('[data-nav]');
+            if (navItem && navItem.tagName === 'A') {
+                setActiveNav(navItem.getAttribute('data-nav'));
+            }
+
+            // Mobile Hamburger Menu Toggle
             const menuBtn = event.target.closest('#menu-icon');
-
             if (menuBtn) {
-                // Find the mobile menu container
+                event.preventDefault();
                 const mobileMenu = document.getElementById('mobile-menu');
-
                 if (mobileMenu) {
-                    // Toggle between 'hidden' and 'flex' to show/hide the menu
                     mobileMenu.classList.toggle('hidden');
                     mobileMenu.classList.toggle('flex');
                 }
             }
+
+            // Desktop Products Toggle
+            const desktopProductsBtn = event.target.closest('#desktop-products-btn');
+            if (desktopProductsBtn) {
+                event.preventDefault();
+                const desktopSubmenu = document.getElementById('desktop-products-submenu');
+                if (desktopSubmenu) {
+                    desktopSubmenu.classList.toggle('hidden');
+                    setActiveNav('products'); // Make product button active when dropdown is open
+                }
+            }
+
+            // Mobile Products Accordion Toggle
+            const mobileProductsBtn = event.target.closest('#mobile-products-btn');
+            if (mobileProductsBtn) {
+                event.preventDefault();
+                const mobileSubmenu = document.getElementById('mobile-products-submenu');
+                const mobileIcon = document.getElementById('mobile-products-icon');
+
+                if (mobileSubmenu) {
+                    mobileSubmenu.classList.toggle('hidden');
+                    mobileSubmenu.classList.toggle('flex');
+                    if (mobileIcon) {
+                        mobileIcon.classList.toggle('rotate-180');
+                    }
+                }
+            }
+
+            // Click outside to close Desktop Submenu
+            const desktopSubmenu = document.getElementById('desktop-products-submenu');
+            if (desktopSubmenu && !desktopSubmenu.classList.contains('hidden')) {
+                if (!event.target.closest('#desktop-products-btn') && !event.target.closest('#desktop-products-submenu')) {
+                    desktopSubmenu.classList.add('hidden');
+
+                    // Re-evaluate URL to fix active state if they clicked away
+                    const currentPath = window.location.pathname.toLowerCase();
+                    if (!currentPath.includes('product')) {
+                        if (currentPath.includes('solution')) setActiveNav('solutions');
+                        else if (currentPath.includes('project')) setActiveNav('projects');
+                        else if (currentPath.includes('dealer')) setActiveNav('dealers');
+                        else if (currentPath.includes('support')) setActiveNav('support');
+                        else setActiveNav('home');
+                    }
+                }
+            }
+
+            // Search Bar 'X' Clear Button Logic
+            const clearBtn = event.target.closest('#clear-search-btn');
+            if (clearBtn) {
+                const searchInput = document.getElementById('search-input');
+                const searchIcon = document.getElementById('search-icon');
+
+                if (searchInput) {
+                    searchInput.value = '';
+                    searchInput.focus();
+                }
+
+                clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                clearBtn.classList.add('opacity-0', 'pointer-events-none');
+
+                if (searchIcon) searchIcon.style.opacity = '1';
+            }
+        });
+
+        // --- 3. Search Bar Typing Logic ---
+        document.addEventListener('input', function (event) {
+            if (event.target && event.target.id === 'search-input') {
+                const searchInput = event.target;
+                const searchIcon = document.getElementById('search-icon');
+                const clearBtn = document.getElementById('clear-search-btn');
+
+                if (searchInput.value.length > 0) {
+                    if (searchIcon) searchIcon.style.opacity = '0';
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        clearBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    }
+                } else {
+                    if (searchIcon) searchIcon.style.opacity = '1';
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                        clearBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                }
+            }
         });
     </script>
-
 </body>
 
 </html>
