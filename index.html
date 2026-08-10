@@ -39,65 +39,77 @@
 
     <!-- Main Content -->
     <main class="flex-grow">
-        <!-- hero section -->
-        <!-- Hero Slider Section -->
-        <section class="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden bg-gray-200 group">
+        <!-- HERO SLIDER SECTION -->
+        <!-- Important: The parent must have overflow-hidden and relative positioning -->
+        <section class="relative w-full overflow-hidden">
 
-            <!-- Slider Track (holds all slides) -->
-            <div id="slider-track" class="flex h-full w-full transition-transform duration-500 ease-in-out">
+            <!-- Slider Track -->
+            <!-- The track must be a flex container that is wide enough to hold all slides -->
+            <div id="slider-track" class="flex transition-transform duration-500 ease-in-out w-full">
 
                 <!-- Slide 1 -->
-                <div class="min-w-full h-full flex-shrink-0 relative">
-                    <img src="./image/hero-img1.png" alt="Hero Image 1"
-                        class="w-full h-full object-cover object-center">
-                    <!-- Optional Overlay/Text -->
-                    <div class="absolute inset-0 bg-black/20"></div>
+                <!-- Important Fix: w-full and flex-shrink-0 force each slide to take up exactly 100% of the screen width -->
+                <div class="w-full flex-shrink-0 relative h-[400px] md:h-[600px]">
+                    <img src="./image/hero-img1.png" alt="Slide 1" class="absolute inset-0 w-full h-full object-cover">
+                    <!-- Overlay and Text -->
+                    <!-- <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center p-6">
+                        <div>
+                            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Smart Solar Solutions</h2>
+                            <h1 class="text-4xl md:text-6xl font-extrabold text-white">Sustainable Future</h1>
+                        </div>
+                    </div> -->
                 </div>
 
                 <!-- Slide 2 -->
-                <div class="min-w-full h-full flex-shrink-0 relative">
-                    <!-- Assuming you might change this to img2 later -->
-                    <img src="./image/hero-img1.png" alt="Hero Image 2"
-                        class="w-full h-full object-cover object-center">
-                    <div class="absolute inset-0 bg-black/20"></div>
+                <div class="w-full flex-shrink-0 relative h-[400px] md:h-[600px]">
+                    <img src="./image/hero-image2.jpg" alt="Slide 2" class="absolute inset-0 w-full h-full object-cover">
+                    <!-- <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center p-6">
+                        <div>
+                            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Empowering Homes</h2>
+                            <h1 class="text-4xl md:text-6xl font-extrabold text-white">Clean Energy</h1>
+                        </div>
+                    </div> -->
                 </div>
 
                 <!-- Slide 3 -->
-                <div class="min-w-full h-full flex-shrink-0 relative">
-                    <!-- Assuming you might change this to img3 later -->
-                    <img src="./image/hero-img1.png" alt="Hero Image 3"
-                        class="w-full h-full object-cover object-center">
-                    <div class="absolute inset-0 bg-black/20"></div>
+                <div class="w-full flex-shrink-0 relative h-[400px] md:h-[600px]">
+                    <img src="./image/hero-image3.jpg" alt="Slide 3" class="absolute inset-0 w-full h-full object-cover">
+                    <!-- <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center p-6">
+                        <div>
+                            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Zero Emissions</h2>
+                            <h1 class="text-4xl md:text-6xl font-extrabold text-white">Maximum Savings</h1>
+                        </div>
+                    </div> -->
                 </div>
 
             </div>
 
-            <!-- Navigation Arrows (Hidden on small mobile, visible on hover for larger screens) -->
+            <!-- Navigation Arrows -->
             <button id="prev-slide"
-                class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white p-2.5 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 md:block hidden z-10 cursor-pointer">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 backdrop-blur-sm transition-colors focus:outline-none z-10">
+                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
-
             <button id="next-slide"
-                class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white p-2.5 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 md:block hidden z-10 cursor-pointer">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 backdrop-blur-sm transition-colors focus:outline-none z-10">
+                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
             </button>
 
-            <!-- Slider Dots -->
-            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
+            <!-- Pagination Dots -->
+            <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3 z-10">
                 <button
-                    class="slider-dot w-3 h-3 rounded-full bg-white transition-all cursor-pointer shadow-md"></button>
+                    class="slider-dot w-3 h-3 md:w-3.5 md:h-3.5 rounded-full bg-white transition-colors focus:outline-none shadow-sm"></button>
                 <button
-                    class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-all cursor-pointer shadow-md"></button>
+                    class="slider-dot w-3 h-3 md:w-3.5 md:h-3.5 rounded-full bg-white/50 transition-colors focus:outline-none shadow-sm"></button>
                 <button
-                    class="slider-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-all cursor-pointer shadow-md"></button>
+                    class="slider-dot w-3 h-3 md:w-3.5 md:h-3.5 rounded-full bg-white/50 transition-colors focus:outline-none shadow-sm"></button>
             </div>
 
         </section>
+
 
         <!-- for product section -->
         <section class="bg-[#eaeaea] font-sans">
@@ -888,7 +900,7 @@
             }
         });
 
-        
+
     </script>
 
 
