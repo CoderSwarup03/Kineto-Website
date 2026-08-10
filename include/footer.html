@@ -14,10 +14,11 @@
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
 
             <!-- Main Footer Content -->
-            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
 
                 <!-- Column 1: Logo, Social, Newsletter -->
-                <div class="flex flex-col space-y-6 lg:pr-8">
+                <!-- Added: col-span-2 lg:col-span-1 to make it full width on mobile, 1 column on desktop -->
+                <div class="col-span-2 lg:col-span-1 flex flex-col space-y-6 lg:pr-8">
                     <!-- Logo -->
                     <img src="../image/footer-logo.png" alt="Kineto Logo"
                         class="h-10 w-auto object-contain object-left mb-2">
@@ -65,21 +66,15 @@
                     <div class="mt-2">
                         <h3 class="text-[17px] font-bold mb-3 tracking-wide text-white">Join our newsletter</h3>
 
-                        <!-- Added max-w-xs for mobile, md:max-w-sm for desktop to control width -->
                         <form
                             class="flex w-full max-w-xs md:max-w-sm items-center bg-[#f0f0f0] rounded-full p-1 border border-transparent focus-within:border-gray-400 transition-all">
-
-                            <!-- min-w-0 ensures the input doesn't force the button out of the pill on tiny screens -->
                             <input type="email" placeholder="Email address"
                                 class="w-full min-w-0 bg-transparent text-gray-800 px-3 md:px-4 py-1.5 md:py-2 text-[14px] md:text-[15px] outline-none placeholder-gray-500 rounded-l-full"
                                 required>
-
-                            <!-- Adjusted padding and text size for mobile, increased font weight to match design -->
                             <button type="submit"
                                 class="bg-[#50b748] hover:bg-[#439e3d] text-white font-bold px-4 md:px-6 py-1.5 md:py-2 rounded-full transition-colors whitespace-nowrap text-[14px] md:text-[15px] shadow-sm">
                                 Subscribe
                             </button>
-
                         </form>
                     </div>
                 </div>
@@ -102,7 +97,7 @@
                 <div>
                     <!-- Customer Service -->
                     <h3 class="text-[17px] font-bold mb-4 tracking-wide">Customer Service</h3>
-                    <ul class="flex flex-col space-y-2.5 mb-8">
+                    <ul class="flex flex-col space-y-2.5 mb-8 capitalize">
                         <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Raise A Complaint</a>
                         </li>
                         <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">contact us</a></li>
@@ -110,7 +105,7 @@
 
                     <!-- Quick Links -->
                     <h3 class="text-[17px] font-bold mb-4 tracking-wide">Quick Links</h3>
-                    <ul class="flex flex-col space-y-2.5">
+                    <ul class="flex flex-col space-y-2.5 capitalize">
                         <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">Blogs</a></li>
                     </ul>
                 </div>
@@ -118,7 +113,7 @@
                 <!-- Column 4: Policies & Terms -->
                 <div>
                     <h3 class="text-[17px] font-bold mb-4 tracking-wide">Policies & Terms</h3>
-                    <ul class="flex flex-col space-y-2.5">
+                    <ul class="flex flex-col space-y-2.5 capitalize">
                         <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">website usage
                                 terms</a></li>
                         <li><a href="#" class="text-[15px] hover:text-[#50b748] transition-colors">payment & refund
