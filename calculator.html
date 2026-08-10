@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kineto-India-Solar-Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        <style>
+
+        /* Dot Pattern Background for Hero */
+        .bg-dots {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        /* Custom styling for the range slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #111827;
+            /* Dark Gray/Black thumb */
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.1s;
+        }
+
+        input[type=range]::-webkit-slider-thumb:active {
+            transform: scale(1.1);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #d1d5db;
+            /* Gray track */
+            border-radius: 2px;
+        }
+
+        /* Smooth reveal for results */
+        .results-grid {
+            transition: max-height 0.8s ease-in-out, opacity 0.8s ease-in-out;
+        }
+    </style>
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <main class="flex-grow">
+        <!-- hero section -->
+        <section class="relative bg-gradient-to-r from-[#439e3d] to-[#6ad164] pt-20 pb-44 px-4 overflow-hidden">
+            <!-- Dot Pattern Overlay -->
+            <div class="absolute inset-0 bg-dots z-0"></div>
+
+            <div class="relative z-10 max-w-[900px] mx-auto text-center flex flex-col items-center">
+
+                <!-- Top Pill Tag -->
+                <div
+                    class="border border-white/40 bg-white/10 rounded-full px-5 py-1.5 mb-6 text-white text-[13px] font-bold tracking-widest uppercase shadow-sm">
+                    Kineto • Solar Calculator
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-5xl md:text-[64px] font-extrabold text-white mb-5 tracking-tight drop-shadow-md">
+                    Go Solar, Save Big
+                </h1>
+
+                <!-- Subheading -->
+                <p
+                    class="text-white/95 text-lg md:text-[20px] max-w-2xl mb-8 font-medium leading-relaxed drop-shadow-sm">
+                    Calculate your personalised solar savings with India's most trusted solar brand. 25-year warranty.
+                </p>
+
+                <!-- Trust Badges (Pills) -->
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span
+                        class="bg-white/20 border border-white/30 text-white px-4 py-1.5 rounded-full text-[14px] font-medium flex items-center shadow-sm backdrop-blur-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
+                        25 Year Warranty
+                    </span>
+                    <span
+                        class="bg-white/20 border border-white/30 text-white px-4 py-1.5 rounded-full text-[14px] font-medium flex items-center shadow-sm backdrop-blur-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                        Made in India
+                    </span>
+                    <span
+                        class="bg-white/20 border border-white/30 text-white px-4 py-1.5 rounded-full text-[14px] font-medium flex items-center shadow-sm backdrop-blur-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z">
+                            </path>
+                        </svg>
+                        Government Subsidy
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CALCULATOR CARD SECTION (Overlapping Hero) -->
+        <section id="calculator-section" class="relative z-20 max-w-[800px] mx-auto px-4 md:px-6 -mt-32 pb-24">
+
+            <!-- White Card with rounded top -->
+            <div class="bg-white rounded-t-[2.5rem] rounded-b-2xl shadow-2xl border border-gray-100 p-6 md:p-10">
+
+                <!-- Step Indicator -->
+                <!-- <div class="flex items-center space-x-3 mb-8 ml-2">
+                    <div
+                        class="bg-[#5bbd55] text-white w-7 h-7 rounded-full flex items-center justify-center text-[13px] font-bold shadow-sm">
+                        1</div>
+                    <span class="text-gray-500 font-bold tracking-widest text-[13px] uppercase">Step One</span>
+                </div> -->
+
+                <!-- CALCULATOR FORM -->
+                <form id="solar-calculator-form" class="space-y-4">
+
+                    <!-- 1. PIN Code -->
+                    <div
+                        class="bg-gray-50 rounded-xl border border-gray-200 p-4 flex items-center justify-between hover:border-gray-300 transition-colors">
+                        <div class="flex items-center w-full">
+                            <svg class="w-6 h-6 text-[#5bbd55] mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            <input type="number" id="calc-pincode" placeholder="Enter PIN Code (e.g., 700001)"
+                                class="w-full text-[16px] font-medium text-gray-800 outline-none bg-transparent"
+                                required>
+                        </div>
+                        <button type="button"
+                            class="text-gray-400 hover:text-[#5bbd55] focus:outline-none transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- 2. Power Supply Phase & 3. Sanctioned Load -->
+                    <div
+                        class="bg-gray-50 rounded-xl border border-gray-200 p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="w-full md:w-1/3">
+                            <span class="text-[15px] text-gray-800 font-bold">Power Supply Phase</span>
+                        </div>
+                        <div class="w-full md:w-2/3 flex flex-col space-y-4">
+                            <div class="flex space-x-6">
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="radio" name="phase" value="single"
+                                        class="w-4.5 h-4.5 text-[#5bbd55] focus:ring-[#5bbd55]" checked>
+                                    <span
+                                        class="ml-2.5 text-[15px] text-gray-700 group-hover:text-black transition-colors">Single
+                                        Phase</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer group">
+                                    <input type="radio" name="phase" value="three"
+                                        class="w-4.5 h-4.5 text-[#5bbd55] focus:ring-[#5bbd55]">
+                                    <span
+                                        class="ml-2.5 text-[15px] text-gray-700 group-hover:text-black transition-colors">Three
+                                        Phase</span>
+                                </label>
+                            </div>
+                            <!-- Sanctioned Load Input -->
+                            <div class="flex items-center border-t border-gray-200 pt-3">
+                                <span class="text-[14px] text-gray-600 w-1/2 font-medium">Sanctioned Load</span>
+                                <div class="w-1/2 flex items-center justify-end">
+                                    <input type="number" id="calc-load" value="3" min="1" step="0.5"
+                                        class="w-16 border border-gray-300 rounded-md px-2 py-1.5 text-center text-[15px] font-bold outline-none focus:border-[#5bbd55] bg-white shadow-inner">
+                                    <span class="ml-2 text-[14px] text-gray-600 font-bold">kW</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Tariff Rates (Slider + Input) -->
+                    <div
+                        class="bg-gray-50 rounded-xl border border-gray-200 p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="w-full md:w-1/4">
+                            <span class="text-[15px] text-gray-800 font-bold">Tariff Rates</span>
+                        </div>
+                        <div class="w-full md:w-3/4 flex items-center justify-between space-x-4">
+                            <span class="text-[14px] font-bold text-gray-500">4</span>
+                            <!-- Slider -->
+                            <div class="flex-grow flex items-center relative">
+                                <input type="range" id="tariff-slider" min="4" max="30" step="0.5" value="9"
+                                    class="w-full z-10">
+                                <!-- Green Progress track -->
+                                <div class="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-[#5bbd55] rounded-l-full z-0"
+                                    id="tariff-progress" style="width: 19.23%;"></div>
+                            </div>
+                            <span class="text-[14px] font-bold text-gray-500">30</span>
+
+                            <!-- Controls -->
+                            <div class="flex items-center space-x-2 ml-2">
+                                <button type="button" id="tariff-minus"
+                                    class="w-7 h-7 rounded-full bg-[#222222] text-white flex items-center justify-center focus:outline-none hover:bg-[#5bbd55] transition-colors pb-0.5 text-xl font-bold">-</button>
+                                <div
+                                    class="border border-gray-300 bg-white rounded-md px-2 py-1.5 flex items-center w-[75px] justify-between shadow-inner">
+                                    <input type="number" id="tariff-input" value="9" min="4" max="30" step="0.5"
+                                        class="w-8 outline-none text-center text-[15px] font-bold bg-transparent">
+                                    <span class="text-[12px] text-gray-500 font-bold">INR</span>
+                                </div>
+                                <button type="button" id="tariff-plus"
+                                    class="w-7 h-7 rounded-full bg-[#222222] text-white flex items-center justify-center focus:outline-none hover:bg-[#5bbd55] transition-colors pb-0.5 text-xl font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Monthly Electricity Bill -->
+                    <div
+                        class="bg-gray-50 rounded-xl border border-gray-200 p-5 flex items-center justify-between hover:border-gray-300 transition-colors">
+                        <div class="flex items-center">
+                            <div
+                                class="w-8 h-8 rounded-full bg-[#e8f5e9] text-[#5bbd55] flex items-center justify-center font-bold text-[15px] mr-3">
+                                ₹</div>
+                            <span class="text-[15px] text-gray-800 font-bold">Monthly Electricity Bill</span>
+                        </div>
+                        <div
+                            class="flex items-center bg-white border border-gray-300 rounded-md px-3 py-2 shadow-inner">
+                            <input type="number" id="calc-bill" value="5000" min="500"
+                                class="w-24 text-right text-[16px] font-bold outline-none bg-transparent">
+                            <span class="ml-2 text-[13px] text-gray-500 font-bold">INR</span>
+                        </div>
+                    </div>
+
+                    <!-- 6, 7, 8. Roof Area, Type, Shadow -->
+                    <div class="bg-gray-50 rounded-xl border border-gray-200 p-5">
+
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                            <div class="flex items-center w-full md:w-1/3">
+                                <svg class="w-6 h-6 text-[#5bbd55] mr-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                </svg>
+                                <span class="text-[15px] text-gray-800 font-bold leading-tight">Available<br>Roof Top
+                                    Area</span>
+                            </div>
+
+                            <div class="w-full md:w-2/3 flex items-center justify-between">
+                                <div class="flex flex-col space-y-3">
+                                    <label class="flex items-center cursor-pointer group">
+                                        <input type="radio" name="area_unit" value="sqft"
+                                            class="w-4.5 h-4.5 text-[#5bbd55] focus:ring-[#5bbd55]" checked>
+                                        <span
+                                            class="ml-2.5 text-[15px] text-gray-700 group-hover:text-black transition-colors">Sq.ft</span>
+                                    </label>
+                                    <label class="flex items-center cursor-pointer group">
+                                        <input type="radio" name="area_unit" value="sqm"
+                                            class="w-4.5 h-4.5 text-[#5bbd55] focus:ring-[#5bbd55]">
+                                        <span
+                                            class="ml-2.5 text-[15px] text-gray-700 group-hover:text-black transition-colors">Sq.m</span>
+                                    </label>
+                                </div>
+                                <input type="number" id="calc-area" value="120"
+                                    class="w-24 text-right text-[18px] font-bold outline-none border-b-2 border-gray-300 focus:border-[#5bbd55] bg-transparent pb-1 transition-colors">
+                            </div>
+                        </div>
+
+                        <p
+                            class="text-[12.5px] text-gray-500 mb-5 bg-white p-2 rounded-md inline-block border border-gray-200 shadow-sm">
+                            *Note: 1kW system requires ~120 Sq.ft / 11.15 Sq.m area</p>
+
+                        <!-- Advanced Specs: Roof Type & Shadow -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-gray-200 pt-5">
+
+                            <!-- 7. Roof Type -->
+                            <div class="flex items-center justify-between">
+                                <span class="text-[14.5px] text-gray-700 font-semibold">Roof Type</span>
+                                <select id="calc-rooftype"
+                                    class="border border-gray-300 rounded-md px-3 py-1.5 text-[14px] outline-none focus:border-[#5bbd55] bg-white shadow-sm cursor-pointer font-medium text-gray-800">
+                                    <option value="rcc">RCC (Flat)</option>
+                                    <option value="metal">Metal (Tin/Shed)</option>
+                                </select>
+                            </div>
+
+                            <!-- 8. Shadow Free -->
+                            <div class="flex items-center justify-between">
+                                <span class="text-[14.5px] text-gray-700 font-semibold">100% Shadow-Free?</span>
+                                <div class="flex space-x-4">
+                                    <label
+                                        class="flex items-center cursor-pointer text-[14px] font-medium text-gray-800">
+                                        <input type="radio" name="shadow" value="yes"
+                                            class="mr-1.5 w-4 h-4 text-[#5bbd55] focus:ring-[#5bbd55]" checked> Yes
+                                    </label>
+                                    <label
+                                        class="flex items-center cursor-pointer text-[14px] font-medium text-gray-800">
+                                        <input type="radio" name="shadow" value="no"
+                                            class="mr-1.5 w-4 h-4 text-[#5bbd55] focus:ring-[#5bbd55]"> No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button (Website Theme Green) -->
+                    <div class="pt-4">
+                        <button type="submit"
+                            class="w-full bg-[#5bbd55] hover:bg-[#4ea848] text-white font-bold text-[16px] py-4 rounded-xl uppercase tracking-wider transition-colors shadow-md hover:shadow-lg">
+                            Generate Result
+                        </button>
+                    </div>
+                </form>
+
+                <!-- RESULTS SECTION (Hidden initially) -->
+                <div id="results-container"
+                    class="mt-12 opacity-0 max-h-0 overflow-hidden results-grid border-t border-gray-200 pt-10">
+
+                    <!-- Result Header -->
+                    <div class="flex items-center space-x-3 mb-6 ml-2">
+                        <div
+                            class="bg-[#222222] text-white w-7 h-7 rounded-full flex items-center justify-center text-[13px] font-bold shadow-sm">
+                            2</div>
+                        <span class="text-gray-500 font-bold tracking-widest text-[13px] uppercase">Your ROI &
+                            Savings</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                        <!-- 1. System Size -->
+                        <div
+                            class="bg-[#f0f8f0] p-6 rounded-xl border border-[#5bbd55] shadow-sm flex flex-col justify-center items-center text-center">
+                            <span
+                                class="text-[14.5px] text-green-800 font-bold mb-1 uppercase tracking-wide">Recommended
+                                Capacity</span>
+                            <span class="text-4xl font-black text-[#5bbd55]" id="res-capacity">-- kW</span>
+                        </div>
+
+                        <!-- 7. Payback Period -->
+                        <div
+                            class="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-center items-center text-center">
+                            <span class="text-[14.5px] text-gray-600 font-bold mb-1 uppercase tracking-wide">Estimated
+                                Payback</span>
+                            <span class="text-3xl font-black text-gray-800" id="res-payback">-- Years</span>
+                        </div>
+
+                        <!-- 2. Estimated Monthly Savings -->
+                        <div
+                            class="bg-white p-5 rounded-xl border border-gray-200 flex justify-between items-center shadow-sm">
+                            <span class="text-[15px] text-gray-600 font-bold">Monthly Savings</span>
+                            <span class="text-[18px] font-extrabold text-[#222222]" id="res-monthly-save">₹ --</span>
+                        </div>
+
+                        <!-- 3. Annual Savings -->
+                        <div
+                            class="bg-white p-5 rounded-xl border border-gray-200 flex justify-between items-center shadow-sm">
+                            <span class="text-[15px] text-gray-600 font-bold">Annual Savings</span>
+                            <span class="text-[18px] font-extrabold text-[#5bbd55]" id="res-annual-save">₹ --</span>
+                        </div>
+
+                        <!-- 4. Solar System Cost -->
+                        <div
+                            class="bg-white p-5 rounded-xl border border-gray-200 flex justify-between items-center shadow-sm">
+                            <span class="text-[15px] text-gray-600 font-bold">Gross System Cost</span>
+                            <span class="text-[18px] font-extrabold text-[#222222]" id="res-cost">₹ --</span>
+                        </div>
+
+                        <!-- 5. Subsidy -->
+                        <div
+                            class="bg-white p-5 rounded-xl border border-gray-200 flex justify-between items-center shadow-sm">
+                            <span class="text-[15px] text-gray-600 font-bold">Estimated Subsidy</span>
+                            <span class="text-[18px] font-extrabold text-[#4a90e2]" id="res-subsidy">₹ --</span>
+                        </div>
+
+                        <!-- 6. Customer Investment -->
+                        <div
+                            class="bg-[#222222] p-6 rounded-xl border border-gray-800 flex justify-between items-center shadow-lg sm:col-span-2 text-white mt-2">
+                            <span class="text-[18px] font-bold tracking-wide">Net Investment <span
+                                    class="block text-[12px] text-gray-400 font-normal mt-1">(Cost minus
+                                    Subsidy)</span></span>
+                            <span class="text-[26px] font-black text-[#5bbd55]" id="res-investment">₹ --</span>
+                        </div>
+
+                        <!-- 8. 25 Year Savings -->
+                        <div
+                            class="bg-gradient-to-r from-[#4ea848] to-[#6ad164] p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center shadow-lg sm:col-span-2 text-white">
+                            <div class="flex flex-col mb-3 md:mb-0">
+                                <span class="text-[18px] text-white font-bold tracking-wide">Lifetime Returns (25
+                                    Years)</span>
+                                <span class="text-[13px] text-green-100 mt-1 font-medium">Net profit after recovering
+                                    initial investment</span>
+                            </div>
+                            <span class="text-3xl md:text-4xl font-black text-white" id="res-lifetime">₹ --</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- JavaScript Logic for Slider and Calculations -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+
+                // --- UI Sync Logic for Tariff Slider & Input ---
+                const tariffSlider = document.getElementById('tariff-slider');
+                const tariffInput = document.getElementById('tariff-input');
+                const tariffMinus = document.getElementById('tariff-minus');
+                const tariffPlus = document.getElementById('tariff-plus');
+                const tariffProgress = document.getElementById('tariff-progress');
+
+                function updateTariffUI(val) {
+                    let value = parseFloat(val);
+                    if (value < 4) value = 4;
+                    if (value > 30) value = 30;
+
+                    tariffSlider.value = value;
+                    tariffInput.value = value;
+
+                    const percentage = ((value - 4) / (30 - 4)) * 100;
+                    tariffProgress.style.width = `${percentage}%`;
+                }
+
+                tariffSlider.addEventListener('input', (e) => updateTariffUI(e.target.value));
+                tariffInput.addEventListener('change', (e) => updateTariffUI(e.target.value));
+
+                tariffMinus.addEventListener('click', () => {
+                    updateTariffUI(parseFloat(tariffInput.value) - 0.5);
+                });
+                tariffPlus.addEventListener('click', () => {
+                    updateTariffUI(parseFloat(tariffInput.value) + 0.5);
+                });
+
+                updateTariffUI(9); // Initialize
+
+                // --- Calculation Logic ---
+                const form = document.getElementById('solar-calculator-form');
+                const resultsContainer = document.getElementById('results-container');
+
+                const formatINR = (num) => {
+                    return new Intl.NumberFormat('en-IN').format(Math.round(num));
+                };
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // 1. Gather Inputs
+                    const monthlyBill = parseFloat(document.getElementById('calc-bill').value) || 0;
+                    const tariffRate = parseFloat(document.getElementById('tariff-input').value) || 0;
+                    let area = parseFloat(document.getElementById('calc-area').value) || 0;
+                    const areaUnit = document.querySelector('input[name="area_unit"]:checked').value;
+                    const shadowFree = document.querySelector('input[name="shadow"]:checked').value;
+                    const load = parseFloat(document.getElementById('calc-load').value) || 1;
+
+                    // 2. Normalize Area to Sq.Ft
+                    if (areaUnit === 'sqm') {
+                        area = area * 10.7639;
+                    }
+
+                    if (shadowFree === 'no') {
+                        area = area * 0.7; // Assume 30% area is lost to shadows
+                    }
+
+                    // 3. Mathematical Modeling
+                    const monthlyUnitsConsumed = monthlyBill / tariffRate;
+                    const kwRequiredForBill = monthlyUnitsConsumed / 120; // 120 units generated per kW monthly
+                    const kwPossibleByArea = area / 120; // 120 sq ft needed per kW
+
+                    // Capacity capped by requirement, physical area, and sanctioned load
+                    let recommendedKW = Math.min(kwRequiredForBill, kwPossibleByArea, load);
+
+                    // Round to nearest 0.5 kW
+                    recommendedKW = Math.ceil(recommendedKW * 2) / 2;
+                    if (recommendedKW < 1) recommendedKW = 1; // Minimum viable system
+
+                    // 4. Financial Calculations
+                    const costPerKW = 60000; // Est. ₹60,000 per kW
+                    const totalCost = recommendedKW * costPerKW;
+
+                    // Standard Subsidy Calculation (PM Surya Ghar approximations)
+                    let subsidy = 0;
+                    if (recommendedKW <= 2) {
+                        subsidy = recommendedKW * 30000;
+                    } else if (recommendedKW > 2 && recommendedKW <= 3) {
+                        subsidy = 60000 + ((recommendedKW - 2) * 18000);
+                    } else {
+                        subsidy = 78000; // Capped for systems above 3kW
+                    }
+
+                    const customerInvestment = totalCost - subsidy;
+
+                    // Savings Calculations
+                    const unitsGenerated = recommendedKW * 120;
+                    let monthlySavings = unitsGenerated * tariffRate;
+
+                    // Cap monthly savings to actual bill
+                    if (monthlySavings > monthlyBill) {
+                        monthlySavings = monthlyBill;
+                    }
+
+                    const annualSavings = monthlySavings * 12;
+                    const paybackPeriod = customerInvestment / annualSavings;
+
+                    // 25 year savings (Lifespan of panels) - Net Profit
+                    const lifetimeSavings = (annualSavings * 25) - customerInvestment;
+
+                    // 5. Update UI Output
+                    document.getElementById('res-capacity').textContent = `${recommendedKW} kW`;
+                    document.getElementById('res-monthly-save').textContent = `₹ ${formatINR(monthlySavings)}`;
+                    document.getElementById('res-annual-save').textContent = `₹ ${formatINR(annualSavings)}`;
+                    document.getElementById('res-cost').textContent = `₹ ${formatINR(totalCost)}`;
+                    document.getElementById('res-subsidy').textContent = `₹ ${formatINR(subsidy)}`;
+                    document.getElementById('res-investment').textContent = `₹ ${formatINR(customerInvestment)}`;
+                    document.getElementById('res-payback').textContent = `${paybackPeriod.toFixed(1)} Years`;
+                    document.getElementById('res-lifetime').textContent = `₹ ${formatINR(lifetimeSavings)}`;
+
+                    // Reveal Results Section
+                    resultsContainer.classList.remove('opacity-0', 'max-h-0');
+                    resultsContainer.classList.add('opacity-100', 'max-h-[1500px]');
+
+                    setTimeout(() => {
+                        resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 200);
+                });
+            });
+        </script>
+
+        <!-- for product section -->
+    </main>
+    <div id="footer-placeholder"></div>
+
+    <!-- Async/Await header/footer Include Script -->
+    <script>
+        async function loadComponent(containerId, filePath) {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
+                }
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+            } catch (error) {
+                console.error('Error loading component:', error);
+            }
+        }
+
+        async function initLayout() {
+            await loadComponent('header-placeholder', 'include/header.html');
+            await loadComponent('footer-placeholder', 'Include/footer.html');
+        }
+
+        initLayout();
+    </script>
+
+
+    <!-- hero slider -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('slider-track');
+            const slides = track.children;
+            const nextButton = document.getElementById('next-slide');
+            const prevButton = document.getElementById('prev-slide');
+            const dots = document.querySelectorAll('.slider-dot');
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            let autoSlideInterval;
+
+            // Function to update the slider position and dots
+            const updateSlider = (index) => {
+                // Move the track
+                track.style.transform = `translateX(-${index * 100}%)`;
+
+                // Update dots styling
+                dots.forEach(dot => {
+                    dot.classList.remove('bg-white');
+                    dot.classList.add('bg-white/50');
+                });
+                dots[index].classList.remove('bg-white/50');
+                dots[index].classList.add('bg-white');
+
+                currentIndex = index;
+            };
+
+            const nextSlide = () => {
+                const index = (currentIndex + 1) % totalSlides;
+                updateSlider(index);
+            };
+
+            const prevSlide = () => {
+                const index = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlider(index);
+            };
+
+            // Event Listeners for Arrows
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+
+            // Event Listeners for Dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    updateSlider(index);
+                    resetAutoSlide();
+                });
+            });
+
+            // Auto-slide functionality (Changes slide every 5 seconds)
+            const startAutoSlide = () => {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            };
+
+            const resetAutoSlide = () => {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            };
+
+            // Initialize auto-slide
+            startAutoSlide();
+        });
+    </script>
+
+    <!--  -->
+    <!-- search script -->
+    <script>
+        // 1. Show/Hide the "X" when typing
+        document.addEventListener('input', function (event) {
+            if (event.target && event.target.id === 'search-input') {
+                const searchInput = event.target;
+                const searchIcon = document.getElementById('search-icon');
+                const clearBtn = document.getElementById('clear-search-btn');
+
+                if (searchInput.value.length > 0) {
+                    // Hide magnifying glass
+                    if (searchIcon) searchIcon.style.opacity = '0';
+
+                    // Show X button
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        clearBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    }
+                } else {
+                    // Show magnifying glass
+                    if (searchIcon) searchIcon.style.opacity = '1';
+
+                    // Hide X button
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                        clearBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                }
+            }
+        });
+
+        // 2. Handle the "X" click
+        document.addEventListener('click', function (event) {
+            const clearBtn = event.target.closest('#clear-search-btn');
+
+            if (clearBtn) {
+                const searchInput = document.getElementById('search-input');
+                const searchIcon = document.getElementById('search-icon');
+
+                if (searchInput) {
+                    searchInput.value = '';
+                    searchInput.focus(); // Keep cursor in the box
+                }
+
+                // Hide the "X"
+                clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                clearBtn.classList.add('opacity-0', 'pointer-events-none');
+
+                // Show the magnifying glass
+                if (searchIcon) searchIcon.style.opacity = '1';
+            }
+        });
+    </script>
+
+    <!-- Script to Handle "See more" Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const seeMoreBtn = document.getElementById('see-more-btn');
+            const hiddenProducts = document.querySelectorAll('.extra-product');
+
+            let isExpanded = false;
+
+            seeMoreBtn.addEventListener('click', () => {
+                isExpanded = !isExpanded; // Toggle state
+
+                hiddenProducts.forEach(product => {
+                    if (isExpanded) {
+                        product.classList.remove('hidden');
+                        product.classList.add('flex'); // Add flex to maintain column layout
+                    } else {
+                        product.classList.add('hidden');
+                        product.classList.remove('flex');
+                    }
+                });
+
+                // Update button text
+                seeMoreBtn.textContent = isExpanded ? 'See less' : 'See more';
+            });
+        });
+    </script>
+
+    <!-- Active Navigation State Logic -->
+    <!-- smooth animation bar open -->
+    <script>
+        // --- 1. Global Click Logic for Menus and Search Bar ---
+        document.addEventListener('click', function (event) {
+
+            // ---------------------------------------------------------
+            // A. Mobile Hamburger Menu Toggle (Smooth Animation)
+            // ---------------------------------------------------------
+            const menuBtn = event.target.closest('#menu-icon');
+            if (menuBtn) {
+                event.preventDefault();
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                if (mobileMenu) {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenu.classList.add('flex');
+
+                        mobileMenu.style.transition = 'none';
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.transform = 'translateY(-15px)';
+
+                        void mobileMenu.offsetHeight; // Reflow
+
+                        mobileMenu.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                        mobileMenu.style.opacity = '1';
+                        mobileMenu.style.transform = 'translateY(0)';
+                    } else {
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.transform = 'translateY(-15px)';
+
+                        setTimeout(() => {
+                            if (mobileMenu.style.opacity === '0') {
+                                mobileMenu.classList.add('hidden');
+                                mobileMenu.classList.remove('flex');
+                                mobileMenu.style.transition = '';
+                                mobileMenu.style.opacity = '';
+                                mobileMenu.style.transform = '';
+                            }
+                        }, 300);
+                    }
+                }
+            }
+
+            // ---------------------------------------------------------
+            // B. Desktop Products Submenu Toggle
+            // ---------------------------------------------------------
+            const desktopProductsBtn = event.target.closest('#desktop-products-btn');
+            if (desktopProductsBtn) {
+                event.preventDefault();
+                const desktopSubmenu = document.getElementById('desktop-products-submenu');
+                if (desktopSubmenu) {
+                    desktopSubmenu.classList.toggle('hidden');
+                }
+            }
+
+            // ---------------------------------------------------------
+            // C. Mobile Products Accordion Toggle (Smooth Animation)
+            // ---------------------------------------------------------
+            const mobileProductsBtn = event.target.closest('#mobile-products-btn');
+            if (mobileProductsBtn) {
+                event.preventDefault();
+                const mobileSubmenu = document.getElementById('mobile-products-submenu');
+                const mobileIcon = document.getElementById('mobile-products-icon');
+
+                if (mobileSubmenu) {
+                    const isSubmenuHidden = mobileSubmenu.classList.contains('hidden');
+
+                    if (isSubmenuHidden) {
+                        // Step 1: Render in DOM
+                        mobileSubmenu.classList.remove('hidden');
+                        mobileSubmenu.classList.add('flex');
+
+                        // Step 2: Set invisible, collapsed starting point
+                        mobileSubmenu.style.overflow = 'hidden';
+                        mobileSubmenu.style.maxHeight = '0px';
+                        mobileSubmenu.style.opacity = '0';
+                        mobileSubmenu.style.transition = 'max-height 0.3s ease-in-out, opacity 0.3s ease-in-out';
+
+                        // Step 3: Force Reflow
+                        void mobileSubmenu.offsetHeight;
+
+                        // Step 4: Expand to exact natural height
+                        mobileSubmenu.style.maxHeight = mobileSubmenu.scrollHeight + 'px';
+                        mobileSubmenu.style.opacity = '1';
+
+                        // Clean up max-height constraint after animation finishes
+                        setTimeout(() => {
+                            if (mobileSubmenu.style.opacity === '1') {
+                                mobileSubmenu.style.maxHeight = 'none';
+                                mobileSubmenu.style.overflow = 'visible';
+                            }
+                        }, 300);
+
+                    } else {
+                        // CLOSING ANIMATION
+                        // Step 1: Explicitly set current height to give CSS a starting point
+                        mobileSubmenu.style.maxHeight = mobileSubmenu.scrollHeight + 'px';
+                        mobileSubmenu.style.overflow = 'hidden';
+
+                        // Step 2: Force Reflow
+                        void mobileSubmenu.offsetHeight;
+
+                        // Step 3: Shrink and fade
+                        mobileSubmenu.style.maxHeight = '0px';
+                        mobileSubmenu.style.opacity = '0';
+
+                        // Step 4: Wait for finish, then remove from DOM
+                        setTimeout(() => {
+                            if (mobileSubmenu.style.opacity === '0') {
+                                mobileSubmenu.classList.add('hidden');
+                                mobileSubmenu.classList.remove('flex');
+
+                                // Cleanup inline styles
+                                mobileSubmenu.style.maxHeight = '';
+                                mobileSubmenu.style.opacity = '';
+                                mobileSubmenu.style.transition = '';
+                                mobileSubmenu.style.overflow = '';
+                            }
+                        }, 300);
+                    }
+
+                    // Rotate the arrow icon
+                    if (mobileIcon) {
+                        mobileIcon.classList.toggle('rotate-180');
+                    }
+                }
+            }
+
+            // ---------------------------------------------------------
+            // D. Close Desktop Submenu if clicking outside
+            // ---------------------------------------------------------
+            const desktopSubmenu = document.getElementById('desktop-products-submenu');
+            if (desktopSubmenu && !desktopSubmenu.classList.contains('hidden')) {
+                if (!event.target.closest('#desktop-products-btn') && !event.target.closest('#desktop-products-submenu')) {
+                    desktopSubmenu.classList.add('hidden');
+                }
+            }
+
+            // ---------------------------------------------------------
+            // E. Search Bar 'X' Clear Button Logic
+            // ---------------------------------------------------------
+            const clearBtn = event.target.closest('#clear-search-btn');
+            if (clearBtn) {
+                const searchInput = document.getElementById('search-input');
+                const searchIcon = document.getElementById('search-icon');
+
+                if (searchInput) {
+                    searchInput.value = '';
+                    searchInput.focus();
+                }
+
+                clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                clearBtn.classList.add('opacity-0', 'pointer-events-none');
+
+                if (searchIcon) searchIcon.style.opacity = '1';
+            }
+        });
+
+        // --- 2. Search Bar Typing Logic ---
+        document.addEventListener('input', function (event) {
+            if (event.target && event.target.id === 'search-input') {
+                const searchInput = event.target;
+                const searchIcon = document.getElementById('search-icon');
+                const clearBtn = document.getElementById('clear-search-btn');
+
+                if (searchInput.value.length > 0) {
+                    if (searchIcon) searchIcon.style.opacity = '0';
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        clearBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    }
+                } else {
+                    if (searchIcon) searchIcon.style.opacity = '1';
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                        clearBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

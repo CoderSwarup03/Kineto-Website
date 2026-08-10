@@ -166,7 +166,7 @@
                             Rs. 16000.00
                         </div>
                     </div>
-                    
+
                     <!-- Product Card 7 (Hidden Initially) -->
                     <div class="extra-product hidden flex-col items-center">
                         <div class="bg-white w-full aspect-square flex items-center justify-center p-6 shadow-sm">
@@ -245,7 +245,7 @@
         initLayout();
     </script>
 
-   
+
 
     <!-- hero slider -->
     <script>
@@ -403,82 +403,67 @@
     </script>
 
     <!-- Active Navigation State Logic -->
+    <!-- smooth animation bar open -->
     <script>
-        // --- 1. Active Navigation State Logic ---
-        function setActiveNav(navName) {
-            // Reset all Desktop Links to default colors
-            document.querySelectorAll('.desktop-link').forEach(link => {
-                link.classList.remove('border-[#4caf50]', 'text-[#4caf50]');
-                link.classList.add('border-transparent', 'text-[#000000]');
-            });
-
-            // Reset all Mobile Links to default colors
-            document.querySelectorAll('.mobile-link').forEach(link => {
-                link.classList.remove('text-[#4caf50]');
-                link.classList.add('text-[#000000]');
-            });
-
-            // Set the Active state for the matched link
-            if (navName) {
-                document.querySelectorAll(`[data-nav="${navName}"]`).forEach(el => {
-                    if (el.classList.contains('desktop-link')) {
-                        el.classList.remove('border-transparent', 'text-[#000000]');
-                        el.classList.add('border-[#4caf50]', 'text-[#4caf50]');
-                    }
-                    if (el.classList.contains('mobile-link')) {
-                        el.classList.remove('text-[#000000]');
-                        el.classList.add('text-[#4caf50]');
-                    }
-                });
-            }
-        }
-
-        // Auto-detect the current page URL to set the active menu item
-        document.addEventListener('DOMContentLoaded', () => {
-            // We use a tiny timeout in case the header is loaded dynamically via JS fetch()
-            setTimeout(() => {
-                const currentPath = window.location.pathname.toLowerCase();
-                if (currentPath.includes('product')) setActiveNav('products');
-                else if (currentPath.includes('solution')) setActiveNav('solutions');
-                else if (currentPath.includes('project')) setActiveNav('projects');
-                else if (currentPath.includes('dealer')) setActiveNav('dealers');
-                else if (currentPath.includes('support')) setActiveNav('support');
-                else setActiveNav('home'); // Default to home
-            }, 150);
-        });
-
-        // --- 2. Global Click Logic for Menus and Search Bar ---
+        // --- 1. Global Click Logic for Menus and Search Bar ---
         document.addEventListener('click', function (event) {
 
-            // Instant visual update when clicking a link (optional, as the page reload will also handle it)
-            const navItem = event.target.closest('[data-nav]');
-            if (navItem && navItem.tagName === 'A') {
-                setActiveNav(navItem.getAttribute('data-nav'));
-            }
-
-            // Mobile Hamburger Menu Toggle
+            // ---------------------------------------------------------
+            // A. Mobile Hamburger Menu Toggle (Smooth Animation)
+            // ---------------------------------------------------------
             const menuBtn = event.target.closest('#menu-icon');
             if (menuBtn) {
                 event.preventDefault();
                 const mobileMenu = document.getElementById('mobile-menu');
+
                 if (mobileMenu) {
-                    mobileMenu.classList.toggle('hidden');
-                    mobileMenu.classList.toggle('flex');
+                    const isHidden = mobileMenu.classList.contains('hidden');
+
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenu.classList.add('flex');
+
+                        mobileMenu.style.transition = 'none';
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.transform = 'translateY(-15px)';
+
+                        void mobileMenu.offsetHeight; // Reflow
+
+                        mobileMenu.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                        mobileMenu.style.opacity = '1';
+                        mobileMenu.style.transform = 'translateY(0)';
+                    } else {
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.transform = 'translateY(-15px)';
+
+                        setTimeout(() => {
+                            if (mobileMenu.style.opacity === '0') {
+                                mobileMenu.classList.add('hidden');
+                                mobileMenu.classList.remove('flex');
+                                mobileMenu.style.transition = '';
+                                mobileMenu.style.opacity = '';
+                                mobileMenu.style.transform = '';
+                            }
+                        }, 300);
+                    }
                 }
             }
 
-            // Desktop Products Toggle
+            // ---------------------------------------------------------
+            // B. Desktop Products Submenu Toggle
+            // ---------------------------------------------------------
             const desktopProductsBtn = event.target.closest('#desktop-products-btn');
             if (desktopProductsBtn) {
                 event.preventDefault();
                 const desktopSubmenu = document.getElementById('desktop-products-submenu');
                 if (desktopSubmenu) {
                     desktopSubmenu.classList.toggle('hidden');
-                    setActiveNav('products'); // Make product button active when dropdown is open
                 }
             }
 
-            // Mobile Products Accordion Toggle
+            // ---------------------------------------------------------
+            // C. Mobile Products Accordion Toggle (Smooth Animation)
+            // ---------------------------------------------------------
             const mobileProductsBtn = event.target.closest('#mobile-products-btn');
             if (mobileProductsBtn) {
                 event.preventDefault();
@@ -486,33 +471,82 @@
                 const mobileIcon = document.getElementById('mobile-products-icon');
 
                 if (mobileSubmenu) {
-                    mobileSubmenu.classList.toggle('hidden');
-                    mobileSubmenu.classList.toggle('flex');
+                    const isSubmenuHidden = mobileSubmenu.classList.contains('hidden');
+
+                    if (isSubmenuHidden) {
+                        // Step 1: Render in DOM
+                        mobileSubmenu.classList.remove('hidden');
+                        mobileSubmenu.classList.add('flex');
+
+                        // Step 2: Set invisible, collapsed starting point
+                        mobileSubmenu.style.overflow = 'hidden';
+                        mobileSubmenu.style.maxHeight = '0px';
+                        mobileSubmenu.style.opacity = '0';
+                        mobileSubmenu.style.transition = 'max-height 0.3s ease-in-out, opacity 0.3s ease-in-out';
+
+                        // Step 3: Force Reflow
+                        void mobileSubmenu.offsetHeight;
+
+                        // Step 4: Expand to exact natural height
+                        mobileSubmenu.style.maxHeight = mobileSubmenu.scrollHeight + 'px';
+                        mobileSubmenu.style.opacity = '1';
+
+                        // Clean up max-height constraint after animation finishes
+                        setTimeout(() => {
+                            if (mobileSubmenu.style.opacity === '1') {
+                                mobileSubmenu.style.maxHeight = 'none';
+                                mobileSubmenu.style.overflow = 'visible';
+                            }
+                        }, 300);
+
+                    } else {
+                        // CLOSING ANIMATION
+                        // Step 1: Explicitly set current height to give CSS a starting point
+                        mobileSubmenu.style.maxHeight = mobileSubmenu.scrollHeight + 'px';
+                        mobileSubmenu.style.overflow = 'hidden';
+
+                        // Step 2: Force Reflow
+                        void mobileSubmenu.offsetHeight;
+
+                        // Step 3: Shrink and fade
+                        mobileSubmenu.style.maxHeight = '0px';
+                        mobileSubmenu.style.opacity = '0';
+
+                        // Step 4: Wait for finish, then remove from DOM
+                        setTimeout(() => {
+                            if (mobileSubmenu.style.opacity === '0') {
+                                mobileSubmenu.classList.add('hidden');
+                                mobileSubmenu.classList.remove('flex');
+
+                                // Cleanup inline styles
+                                mobileSubmenu.style.maxHeight = '';
+                                mobileSubmenu.style.opacity = '';
+                                mobileSubmenu.style.transition = '';
+                                mobileSubmenu.style.overflow = '';
+                            }
+                        }, 300);
+                    }
+
+                    // Rotate the arrow icon
                     if (mobileIcon) {
                         mobileIcon.classList.toggle('rotate-180');
                     }
                 }
             }
 
-            // Click outside to close Desktop Submenu
+            // ---------------------------------------------------------
+            // D. Close Desktop Submenu if clicking outside
+            // ---------------------------------------------------------
             const desktopSubmenu = document.getElementById('desktop-products-submenu');
             if (desktopSubmenu && !desktopSubmenu.classList.contains('hidden')) {
                 if (!event.target.closest('#desktop-products-btn') && !event.target.closest('#desktop-products-submenu')) {
                     desktopSubmenu.classList.add('hidden');
-
-                    // Re-evaluate URL to fix active state if they clicked away
-                    const currentPath = window.location.pathname.toLowerCase();
-                    if (!currentPath.includes('product')) {
-                        if (currentPath.includes('solution')) setActiveNav('solutions');
-                        else if (currentPath.includes('project')) setActiveNav('projects');
-                        else if (currentPath.includes('dealer')) setActiveNav('dealers');
-                        else if (currentPath.includes('support')) setActiveNav('support');
-                        else setActiveNav('home');
-                    }
                 }
             }
 
-            // Search Bar 'X' Clear Button Logic
+            // ---------------------------------------------------------
+            // E. Search Bar 'X' Clear Button Logic
+            // ---------------------------------------------------------
             const clearBtn = event.target.closest('#clear-search-btn');
             if (clearBtn) {
                 const searchInput = document.getElementById('search-input');
@@ -530,7 +564,7 @@
             }
         });
 
-        // --- 3. Search Bar Typing Logic ---
+        // --- 2. Search Bar Typing Logic ---
         document.addEventListener('input', function (event) {
             if (event.target && event.target.id === 'search-input') {
                 const searchInput = event.target;
