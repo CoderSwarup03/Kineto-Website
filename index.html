@@ -494,74 +494,112 @@
     </script>
 
     <!-- product slider -->
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const track = document.getElementById('product-track');
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
             const dots = document.querySelectorAll('.dot');
-            const cards = track.children;
+
+            // 1. Get original cards before cloning
+            const originalCards = Array.from(track.children);
+            const totalOriginalCards = originalCards.length;
+
+            // 2. Clone cards for infinite, seamless looping
+            originalCards.forEach(card => {
+                const clone = card.cloneNode(true);
+                track.appendChild(clone);
+            });
+
+            // 3. Update variables to include the new clones
+            const allCards = track.children;
+            const totalCardsInTrack = allCards.length;
 
             let currentIndex = 0;
             let autoSlideInterval;
+            let isTransitioning = false;
 
             // Configuration: 3 on desktop, 2 on mobile
             const getItemsVisible = () => {
-                if (window.innerWidth >= 768) return 3;
-                return 2;
+                if (window.innerWidth >= 768) return 3; // Desktop
+                return 2; // Mobile
             };
 
-            const updateSlider = () => {
-                const itemsVisible = getItemsVisible();
-                const totalCards = cards.length;
-
-                if (currentIndex > totalCards - itemsVisible) {
-                    currentIndex = totalCards - itemsVisible;
+            const updateSlider = (smooth = true) => {
+                // Apply or remove smooth animation
+                if (smooth) {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                } else {
+                    track.style.transition = 'none';
                 }
-                if (currentIndex < 0) currentIndex = 0;
 
-                const percentage = -(currentIndex * (100 / itemsVisible));
+                // Move exactly 1 card width relative to the entire track length
+                const percentage = -(currentIndex * (100 / totalCardsInTrack));
                 track.style.transform = `translateX(${percentage}%)`;
 
+                // Update Dots
                 dots.forEach(dot => {
                     dot.classList.remove('bg-gray-500');
                     dot.classList.add('bg-white');
                 });
 
-                let dotIndex = Math.floor(currentIndex / itemsVisible);
+                // Map the dots to the current visible group
+                const itemsVisible = getItemsVisible();
+                let dotIndex = Math.floor((currentIndex % totalOriginalCards) / itemsVisible);
                 if (dotIndex >= dots.length) dotIndex = dots.length - 1;
+
                 if (dots[dotIndex]) {
                     dots[dotIndex].classList.remove('bg-white');
                     dots[dotIndex].classList.add('bg-gray-500');
                 }
             };
 
+            // --- SLIDE ONE BY ONE ---
             const nextSlide = () => {
-                const itemsVisible = getItemsVisible();
-                const totalCards = cards.length;
+                if (isTransitioning) return;
+                isTransitioning = true;
 
-                if (currentIndex >= totalCards - itemsVisible) {
-                    currentIndex = 0;
+                currentIndex++; // Slide exactly 1 item forward
+                updateSlider(true);
+
+                // Infinite Loop Snap: If we hit the cloned set, invisibly snap back to the start
+                if (currentIndex === totalOriginalCards) {
+                    setTimeout(() => {
+                        currentIndex = 0;
+                        updateSlider(false); // Snap back without transition
+                        isTransitioning = false;
+                    }, 500); // 500ms matches the transition-duration
                 } else {
-                    currentIndex++;
+                    setTimeout(() => { isTransitioning = false; }, 500);
                 }
-                updateSlider();
             };
 
             const prevSlide = () => {
-                const itemsVisible = getItemsVisible();
-                const totalCards = cards.length;
+                if (isTransitioning) return;
+                isTransitioning = true;
 
-                if (currentIndex > 0) {
-                    currentIndex--;
+                if (currentIndex === 0) {
+                    // Invisible snap to the cloned set first
+                    currentIndex = totalOriginalCards;
+                    updateSlider(false);
+
+                    // Force browser to register the snap before moving
+                    void track.offsetWidth;
+
+                    currentIndex--; // Slide exactly 1 item backward
+                    updateSlider(true);
                 } else {
-                    currentIndex = totalCards - itemsVisible;
+                    currentIndex--; // Slide exactly 1 item backward
+                    updateSlider(true);
                 }
-                updateSlider();
+
+                setTimeout(() => { isTransitioning = false; }, 500);
             };
 
+            // Auto-Slide Logic
             const startAutoSlide = () => {
-                autoSlideInterval = setInterval(nextSlide, 4000);
+                autoSlideInterval = setInterval(nextSlide, 4000); // Slides one by one every 4 seconds
             };
 
             const resetAutoSlide = () => {
@@ -569,6 +607,7 @@
                 startAutoSlide();
             };
 
+            // Click Events
             nextBtn.addEventListener('click', () => {
                 nextSlide();
                 resetAutoSlide();
@@ -579,30 +618,31 @@
                 resetAutoSlide();
             });
 
+            // Dot Click Logic
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
+                    if (isTransitioning) return;
                     const itemsVisible = getItemsVisible();
                     currentIndex = index * itemsVisible;
-                    if (currentIndex > cards.length - itemsVisible) {
-                        currentIndex = cards.length - itemsVisible;
+                    if (currentIndex >= totalOriginalCards) {
+                        currentIndex = totalOriginalCards - 1;
                     }
-                    updateSlider();
+                    updateSlider(true);
                     resetAutoSlide();
                 });
             });
 
+            // Pause auto-slide when mouse is hovering
             track.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
             track.addEventListener('mouseleave', () => startAutoSlide());
 
+            // Handle browser window resizing
             window.addEventListener('resize', () => {
-                // Adjust current index on resize so it doesn't break boundaries
-                const itemsVisible = getItemsVisible();
-                if (currentIndex > cards.length - itemsVisible) {
-                    currentIndex = Math.max(0, cards.length - itemsVisible);
-                }
-                updateSlider();
+                updateSlider(false);
             });
 
+            // Initialize the Slider
+            updateSlider(false);
             startAutoSlide();
         });
     </script>
