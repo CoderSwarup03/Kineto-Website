@@ -164,39 +164,110 @@
 
                     <!-- RIGHT COLUMN: CONTACT FORM -->
                     <div class="lg:col-span-7 flex flex-col justify-between">
-                        <form action="#" method="POST" class="space-y-4">
+                        <form action="#" method="POST" class="w-full space-y-4">
 
                             <!-- Name Input -->
-                            <div>
+                            <div class="w-full">
                                 <input type="text" name="name" placeholder="Name" required
-                                    class="w-full bg-transparent border border-gray-600 rounded-lg px-5 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-[#5bbd55] transition-colors">
+                                    class="w-full bg-white border border-gray-400 rounded-lg px-5 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-[#5bbd55] focus:ring-1 focus:ring-[#5bbd55] transition-colors">
                             </div>
 
                             <!-- Email Input -->
-                            <div>
+                            <div class="w-full">
                                 <input type="email" name="email" placeholder="Email" required
-                                    class="w-full bg-transparent border border-gray-600 rounded-lg px-5 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-[#5bbd55] transition-colors">
+                                    class="w-full bg-white border border-gray-400 rounded-lg px-5 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-[#5bbd55] focus:ring-1 focus:ring-[#5bbd55] transition-colors">
                             </div>
 
                             <!-- Phone Input -->
-                            <div>
+                            <div class="w-full">
                                 <input type="tel" name="phone" placeholder="Phone No"
-                                    class="w-full bg-transparent border border-gray-600 rounded-lg px-5 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-[#5bbd55] transition-colors">
+                                    class="w-full bg-white border border-gray-400 rounded-lg px-5 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-[#5bbd55] focus:ring-1 focus:ring-[#5bbd55] transition-colors">
+                            </div>
+
+                            <!-- ADDRESS ROW 1: House No. / Flat Num & City -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                                <!-- House No. / Flat Num -->
+                                <div class="w-full">
+                                    <input type="text" name="house_no" placeholder="House No. / Flat No." required
+                                        class="w-full bg-white border border-gray-400 rounded-lg px-5 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-[#5bbd55] focus:ring-1 focus:ring-[#5bbd55] transition-colors">
+                                </div>
+
+                                <!-- City -->
+                                <div class="w-full">
+                                    <input type="text" name="city" placeholder="City" required
+                                        class="w-full bg-white border border-gray-400 rounded-lg px-5 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-[#5bbd55] focus:ring-1 focus:ring-[#5bbd55] transition-colors">
+                                </div>
+                            </div>
+
+                            <!-- ADDRESS ROW 2: State Dropdown & PIN Code -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                                <!-- State Dropdown -->
+                                <div class="w-full">
+                                    <select name="state" required
+                                        class="w-full bg-white border border-gray-400 rounded-lg px-5 py-4 text-black focus:outline-none focus:border-[#5bbd55] focus:ring-1 focus:ring-[#5bbd55] transition-colors">
+                                        <option value="" disabled selected class="text-gray-500">Select State</option>
+                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Manipur">Manipur</option>
+                                        <option value="Meghalaya">Meghalaya</option>
+                                        <option value="Mizoram">Mizoram</option>
+                                        <option value="Nagaland">Nagaland</option>
+                                        <option value="Odisha">Odisha</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Sikkim">Sikkim</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Tripura">Tripura</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="Uttarakhand">Uttarakhand</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                        <!-- Union Territories -->
+                                        <option value="Andaman and Nicobar Islands">Andaman & Nicobar Islands</option>
+                                        <option value="Chandigarh">Chandigarh</option>
+                                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra & Nagar Haveli &
+                                            Daman & Diu</option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Jammu and Kashmir">Jammu & Kashmir</option>
+                                        <option value="Ladakh">Ladakh</option>
+                                        <option value="Lakshadweep">Lakshadweep</option>
+                                        <option value="Puducherry">Puducherry</option>
+                                    </select>
+                                </div>
+
+                                <!-- PIN Code -->
+                                <div class="w-full">
+                                    <input type="text" name="pincode" placeholder="PIN Code" pattern="[0-9]{6}"
+                                        maxlength="6" required
+                                        class="w-full bg-white border border-gray-400 rounded-lg px-5 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-[#5bbd55] focus:ring-1 focus:ring-[#5bbd55] transition-colors">
+                                </div>
                             </div>
 
                             <!-- Message Textarea -->
-                            <div>
+                            <div class="w-full">
                                 <textarea name="message" rows="5" placeholder="Message" required
-                                    class="w-full bg-transparent border border-gray-600 rounded-lg px-5 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-[#5bbd55] transition-colors resize-none"></textarea>
+                                    class="w-full bg-white border border-gray-400 rounded-lg px-5 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-[#5bbd55] focus:ring-1 focus:ring-[#5bbd55] transition-colors resize-none"></textarea>
                             </div>
 
                             <!-- BOTTOM ROW: reCAPTCHA & SUBMIT BUTTON -->
                             <div
-                                class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-2">
+                                class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-2 w-full">
 
                                 <!-- Styled Mock reCAPTCHA Box -->
                                 <div
-                                    class="bg-white text-gray-800 rounded px-4 py-3 flex items-center justify-between w-64 shadow-md border border-gray-300">
+                                    class="bg-white text-gray-800 rounded px-4 py-3 flex items-center justify-between w-64 shadow-md border border-gray-300 flex-shrink-0">
                                     <label class="flex items-center space-x-3 cursor-pointer select-none">
                                         <input type="checkbox" required
                                             class="w-6 h-6 rounded border-gray-300 text-[#5bbd55] focus:ring-0 cursor-pointer">
@@ -220,6 +291,91 @@
                         </form>
                     </div>
                 </div>
+
+                <!-- free solar servey -->
+                <!-- FREE SOLAR SURVEY BOOKING CARD -->
+                <!-- FREE SOLAR SURVEY BOOKING CARD (KINETO PALETTE) -->
+                <section class="py-12">
+                    <div
+                        class="bg-white rounded-3xl border border-gray-200 shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-12 items-stretch">
+
+                        <!-- LEFT COLUMN: Representative / Roof Image -->
+                        <div class="md:col-span-5 relative min-h-[260px] md:min-h-full bg-gray-100">
+                            <img src="./image/servey-image.jpg" alt="Solar Expert on Rooftop"
+                                class="w-full h-full object-cover object-center">
+
+                            <!-- Kineto Green Floating Brand Tag -->
+                            <div
+                                class="absolute bottom-4 left-4 right-4 bg-[#222222]/85 backdrop-blur-sm text-white px-4 py-3 rounded-xl text-xs text-center font-medium border border-white/10 shadow-lg">
+                                <span class="text-[#5bbd55] font-extrabold uppercase tracking-wide">100% Free</span> —
+                                On-Site Engineering Survey
+                            </div>
+                        </div>
+
+                        <!-- RIGHT COLUMN: Survey Form -->
+                        <div class="md:col-span-7 p-6 sm:p-10 md:p-12 flex flex-col justify-center bg-[#f8f9fa]">
+
+                            <!-- Heading -->
+                            <div class="text-center md:text-left mb-8">
+                                <span class="text-xs font-bold text-[#5bbd55] uppercase tracking-widest block mb-1">
+                                    Book An Appointment
+                                </span>
+                                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#222222] tracking-tight">
+                                    No Spam. Just Honest Solar Advice.
+                                </h2>
+                                <!-- Kineto Green Accent Line -->
+                                <div class="w-16 h-[3px] bg-[#5bbd55] mt-3 mx-auto md:mx-0 rounded-full"></div>
+                            </div>
+
+                            <!-- Form -->
+                            <form action="survey-handler.php" method="POST" class="space-y-4">
+
+                                <!-- Name Input -->
+                                <div class="w-full">
+                                    <input type="text" name="name" placeholder="Name" required
+                                        class="w-full bg-white border border-gray-300 rounded-xl px-5 py-4 text-black placeholder-gray-500 font-medium focus:outline-none focus:border-[#5bbd55] focus:ring-2 focus:ring-[#5bbd55]/20 transition-all shadow-sm">
+                                </div>
+
+                                <!-- WhatsApp Number Input -->
+                                <div class="w-full">
+                                    <input type="tel" name="whatsapp" placeholder="WhatsApp Number" pattern="[0-9]{10}"
+                                        maxlength="10" required
+                                        class="w-full bg-white border border-gray-300 rounded-xl px-5 py-4 text-black placeholder-gray-500 font-medium focus:outline-none focus:border-[#5bbd55] focus:ring-2 focus:ring-[#5bbd55]/20 transition-all shadow-sm">
+                                </div>
+
+                                <!-- PIN Code Input -->
+                                <div class="w-full">
+                                    <input type="text" name="pincode" placeholder="PIN Code" pattern="[0-9]{6}"
+                                        maxlength="6" required
+                                        class="w-full bg-white border border-gray-300 rounded-xl px-5 py-4 text-black placeholder-gray-500 font-medium focus:outline-none focus:border-[#5bbd55] focus:ring-2 focus:ring-[#5bbd55]/20 transition-all shadow-sm">
+                                </div>
+
+                                <!-- Submit Button (Solid Kineto Green) -->
+                                <div class="pt-3 w-full">
+                                    <button type="submit"
+                                        class="w-full bg-[#5bbd55] hover:bg-[#4ea848] text-white font-extrabold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-[#5bbd55] focus:ring-offset-2">
+                                        BOOK FREE SOLAR SURVEY
+                                    </button>
+                                </div>
+
+                                <!-- Footer Terms Agreement -->
+                                <p class="text-center text-[12px] text-gray-500 pt-2">
+                                    I agree to Kineto's
+                                    <a href="terms.html"
+                                        class="underline font-medium hover:text-[#5bbd55] transition-colors">Terms of
+                                        Use</a>
+                                    and
+                                    <a href="privacy.html"
+                                        class="underline font-medium hover:text-[#5bbd55] transition-colors">Privacy
+                                        Policy</a>
+                                </p>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </section>
 
                 <!-- WHY CHOOSE KINETO SECTION (ADDED WITHOUT CHANGING PREVIOUS STRUCTURE) -->
                 <div class="mt-16 md:mt-24 bg-[#5bbd55] rounded-2xl py-12 px-6 sm:px-10 text-center shadow-xl">
