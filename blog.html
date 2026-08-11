@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kineto-India-Solar-Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    <main class="flex-grow">
+        <div class="max-w-[1200px] mx-auto px-4 md:px-6 py-12 md:py-16">
+
+            <!-- 1. PAGE HEADER -->
+            <div class="mb-10 text-center">
+                <span class="text-[#53b848] font-bold text-[13px] uppercase tracking-widest block mb-2">
+                    Insights & Updates
+                </span>
+                <h1 class="text-3xl md:text-4xl font-bold text-[#222222]">
+                    Our Latest Blogs
+                </h1>
+                <!-- Kineto Green Underline -->
+                <div class="w-16 h-[2px] bg-[#53b848] mx-auto mt-4"></div>
+                <p class="text-gray-500 max-w-xl mx-auto mt-3 text-[15px]">
+                    Explore expert articles, guides, and updates on solar energy, LED lighting solutions, and
+                    sustainable tech.
+                </p>
+            </div>
+
+            <!-- 2. CATEGORY FILTER TABS -->
+            <div id="category-tabs" class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-12">
+                <button data-filter="all"
+                    class="tab-btn active bg-[#53b848] text-white px-5 py-2 rounded-full text-[14px] font-medium transition-colors shadow-sm">
+                    All Posts
+                </button>
+                <button data-filter="Solar Systems"
+                    class="tab-btn bg-white hover:bg-gray-100 text-gray-700 px-5 py-2 rounded-full text-[14px] font-medium border border-gray-200 transition-colors">
+                    Solar Systems
+                </button>
+                <button data-filter="LED Lighting"
+                    class="tab-btn bg-white hover:bg-gray-100 text-gray-700 px-5 py-2 rounded-full text-[14px] font-medium border border-gray-200 transition-colors">
+                    LED Lighting
+                </button>
+                <button data-filter="Sustainability"
+                    class="tab-btn bg-white hover:bg-gray-100 text-gray-700 px-5 py-2 rounded-full text-[14px] font-medium border border-gray-200 transition-colors">
+                    Sustainability
+                </button>
+                <button data-filter="Guides & ROI"
+                    class="tab-btn bg-white hover:bg-gray-100 text-gray-700 px-5 py-2 rounded-full text-[14px] font-medium border border-gray-200 transition-colors">
+                    Guides & ROI
+                </button>
+            </div>
+
+            <!-- 3. FEATURED BLOG POST (Top Highlight) -->
+            <div
+                class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200/80 mb-12 grid grid-cols-1 lg:grid-cols-12 group">
+                <!-- Featured Image -->
+                <div class="lg:col-span-7 h-64 sm:h-80 relative overflow-hidden">
+                    <img src="./image/5hp-micro.png" alt="Featured Blog"
+                        class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    <span
+                        class="absolute top-4 left-4 bg-[#53b848] text-white text-[12px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+                        Featured
+                    </span>
+                </div>
+
+                <!-- Featured Content -->
+                <div class="lg:col-span-5 p-6 sm:p-8 md:p-10 flex flex-col justify-between">
+                    <div>
+                        <!-- Meta Info -->
+                        <div class="flex items-center space-x-3 text-xs text-gray-400 mb-3">
+                            <span>August 11, 2026</span>
+                            <span>•</span>
+                            <span>5 min read</span>
+                        </div>
+
+                        <!-- Title -->
+                        <h2
+                            class="text-2xl sm:text-3xl font-bold text-[#222222] group-hover:text-[#53b848] transition-colors mb-4 leading-tight">
+                            <a href="#">Why Commercial Rooftop Solar is the Best Investment in 2026</a>
+                        </h2>
+
+                        <!-- Excerpt -->
+                        <p class="text-gray-600 text-[15px] leading-relaxed mb-6">
+                            Discover how modern solar inverter technologies and government subsidies can reduce
+                            operational energy bills by up to 80% with payback periods under 3 years.
+                        </p>
+                    </div>
+
+                    <!-- Read More Link -->
+                    <div>
+                        <a href="./single-blog.html"
+                            class="inline-flex items-center font-bold text-[15px] text-[#53b848] hover:text-[#439e3d] group/link">
+                            <span>Read Full Article</span>
+                            <svg class="w-4 h-4 ml-2 transform group-hover/link:translate-x-1.5 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. BLOG GRID (Multiple Blog Cards) -->
+            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card 1 -->
+                <article
+                    class="blog-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-200/80 transition-all duration-300 flex flex-col justify-between group"
+                    data-category="Solar Systems">
+                    <div>
+                        <!-- Thumbnail -->
+                        <div class="relative h-52 overflow-hidden bg-gray-100">
+                            <img src="./image/solar-panel.png" alt="Blog 1"
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#53b848] font-bold text-[11px] uppercase tracking-wide px-3 py-1 rounded-full shadow-sm">
+                                Solar Systems
+                            </span>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 text-xs text-gray-400 mb-2">
+                                <span>Aug 08, 2026</span>
+                                <span>•</span>
+                                <span>4 min read</span>
+                            </div>
+
+                            <h3
+                                class="text-xl font-bold text-[#222222] group-hover:text-[#53b848] transition-colors mb-3 leading-snug">
+                                <a href="#">How to Maintain Your Solar Panels for Maximum Efficiency</a>
+                            </h3>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Simple maintenance checklists and cleaning tips to ensure your rooftop solar modules
+                                operate at peak generation all year round.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Footer / Link -->
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                        <a href="#"
+                            class="inline-flex items-center font-semibold text-sm text-[#53b848] hover:text-[#439e3d] group/link">
+                            <span>Read More</span>
+                            <svg class="w-4 h-4 ml-1.5 transform group-hover/link:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article
+                    class="blog-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-200/80 transition-all duration-300 flex flex-col justify-between group"
+                    data-category="LED Lighting">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-gray-100">
+                            <img src="./image/solar-inveter.png" alt="Blog 2"
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#53b848] font-bold text-[11px] uppercase tracking-wide px-3 py-1 rounded-full shadow-sm">
+                                LED Lighting
+                            </span>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 text-xs text-gray-400 mb-2">
+                                <span>Aug 03, 2026</span>
+                                <span>•</span>
+                                <span>3 min read</span>
+                            </div>
+
+                            <h3
+                                class="text-xl font-bold text-[#222222] group-hover:text-[#53b848] transition-colors mb-3 leading-snug">
+                                <a href="#">LED Flood Lights vs. Conventional Street Lights: A Comparison</a>
+                            </h3>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                A technical breakdown of lumen output, lifespan, and energy cost savings when switching
+                                commercial perimeters to LED fixtures.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                        <a href="#"
+                            class="inline-flex items-center font-semibold text-sm text-[#53b848] hover:text-[#439e3d] group/link">
+                            <span>Read More</span>
+                            <svg class="w-4 h-4 ml-1.5 transform group-hover/link:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article
+                    class="blog-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-200/80 transition-all duration-300 flex flex-col justify-between group"
+                    data-category="Guides & ROI">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-gray-100">
+                            <img src="./image/solar-fold-light.png" alt="Blog 3"
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#53b848] font-bold text-[11px] uppercase tracking-wide px-3 py-1 rounded-full shadow-sm">
+                                Guides & ROI
+                            </span>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 text-xs text-gray-400 mb-2">
+                                <span>Jul 28, 2026</span>
+                                <span>•</span>
+                                <span>6 min read</span>
+                            </div>
+
+                            <h3
+                                class="text-xl font-bold text-[#222222] group-hover:text-[#53b848] transition-colors mb-3 leading-snug">
+                                <a href="#">Understanding Net Metering and Solar Subsidy in India</a>
+                            </h3>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Everything you need to know about PM Surya Ghar rules, sanction loads, and calculating
+                                your estimated payback period.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                        <a href="#"
+                            class="inline-flex items-center font-semibold text-sm text-[#53b848] hover:text-[#439e3d] group/link">
+                            <span>Read More</span>
+                            <svg class="w-4 h-4 ml-1.5 transform group-hover/link:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article
+                    class="blog-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-200/80 transition-all duration-300 flex flex-col justify-between group"
+                    data-category="Sustainability">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-gray-100">
+                            <img src="./image/hero-2.jpg" alt="Blog 4"
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#53b848] font-bold text-[11px] uppercase tracking-wide px-3 py-1 rounded-full shadow-sm">
+                                Sustainability
+                            </span>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 text-xs text-gray-400 mb-2">
+                                <span>Jul 21, 2026</span>
+                                <span>•</span>
+                                <span>4 min read</span>
+                            </div>
+
+                            <h3
+                                class="text-xl font-bold text-[#222222] group-hover:text-[#53b848] transition-colors mb-3 leading-snug">
+                                <a href="#">How Solar Energy Reduces Carbon Footprint for Manufacturing Units</a>
+                            </h3>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Learn how green energy adoption supports ESG compliance while lowering dependence on
+                                grid electricity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                        <a href="#"
+                            class="inline-flex items-center font-semibold text-sm text-[#53b848] hover:text-[#439e3d] group/link">
+                            <span>Read More</span>
+                            <svg class="w-4 h-4 ml-1.5 transform group-hover/link:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article
+                    class="blog-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-200/80 transition-all duration-300 flex flex-col justify-between group"
+                    data-category="Solar Systems">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-gray-100">
+                            <img src="./image/hero-3.jpg" alt="Blog 5"
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#53b848] font-bold text-[11px] uppercase tracking-wide px-3 py-1 rounded-full shadow-sm">
+                                Solar Systems
+                            </span>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 text-xs text-gray-400 mb-2">
+                                <span>Jul 15, 2026</span>
+                                <span>•</span>
+                                <span>5 min read</span>
+                            </div>
+
+                            <h3
+                                class="text-xl font-bold text-[#222222] group-hover:text-[#53b848] transition-colors mb-3 leading-snug">
+                                <a href="#">Choosing the Right Solar Inverter: String vs. Microinverters</a>
+                            </h3>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                We compare efficiency ratings, warranty periods, and installation setups to help you
+                                select the ideal inverter for your load.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                        <a href="#"
+                            class="inline-flex items-center font-semibold text-sm text-[#53b848] hover:text-[#439e3d] group/link">
+                            <span>Read More</span>
+                            <svg class="w-4 h-4 ml-1.5 transform group-hover/link:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article
+                    class="blog-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-200/80 transition-all duration-300 flex flex-col justify-between group"
+                    data-category="LED Lighting">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-gray-100">
+                            <img src="./image/solar-panel.png" alt="Blog 6"
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#53b848] font-bold text-[11px] uppercase tracking-wide px-3 py-1 rounded-full shadow-sm">
+                                LED Lighting
+                            </span>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 text-xs text-gray-400 mb-2">
+                                <span>Jul 09, 2026</span>
+                                <span>•</span>
+                                <span>3 min read</span>
+                            </div>
+
+                            <h3
+                                class="text-xl font-bold text-[#222222] group-hover:text-[#53b848] transition-colors mb-3 leading-snug">
+                                <a href="#">Top 5 Signs You Need to Upgrade Your Facility Lighting</a>
+                            </h3>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                From flickering lamps to high heat output, know the warning signs of outdated fixtures
+                                before maintenance costs spike.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                        <a href="#"
+                            class="inline-flex items-center font-semibold text-sm text-[#53b848] hover:text-[#439e3d] group/link">
+                            <span>Read More</span>
+                            <svg class="w-4 h-4 ml-1.5 transform group-hover/link:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- 5. LOAD MORE / SHOW LESS BUTTON -->
+            <div class="mt-16 text-center">
+                <button id="toggle-articles-btn"
+                    class="inline-flex items-center bg-[#53b848] hover:bg-[#439e3d] text-white font-bold text-[15px] px-8 py-3.5 rounded-full transition-all shadow-md hover:shadow-lg">
+                    <span id="btn-text">Load More Articles</span>
+                    <svg id="btn-icon" class="w-5 h-5 ml-2 transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+
+    </main>
+    <div id="footer-placeholder"></div>
+
+    <!-- Async/Await header/footer Include Script -->
+    <script>
+        async function loadComponent(containerId, filePath) {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
+                }
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+            } catch (error) {
+                console.error('Error loading component:', error);
+            }
+        }
+
+        async function initLayout() {
+            await loadComponent('header-placeholder', 'include/header.html');
+            await loadComponent('footer-placeholder', 'Include/footer.html');
+        }
+
+        initLayout();
+    </script>
+
+
+    <!-- 6. WORKING JAVASCRIPT: TAB FILTERING + LOAD MORE TOGGLE -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            const toggleBtn = document.getElementById('toggle-articles-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnIcon = document.getElementById('btn-icon');
+
+            // Configuration
+            const initialVisibleCount = 3; // Shows 3 cards initially per filter
+            let currentFilter = 'all';
+            let isExpanded = false;
+
+            // --- Core Filter & Pagination Function ---
+            const updateBlogDisplay = () => {
+                // 1. Identify which cards match the active category tab
+                const matchingCards = Array.from(blogCards).filter(card => {
+                    const category = card.getAttribute('data-category');
+                    return currentFilter === 'all' || category === currentFilter;
+                });
+
+                // 2. Hide ALL cards first
+                blogCards.forEach(card => {
+                    card.style.display = 'none';
+                });
+
+                // 3. Determine how many cards to show
+                const cardsToShow = isExpanded ? matchingCards.length : Math.min(initialVisibleCount, matchingCards.length);
+
+                // 4. Reveal the visible cards
+                matchingCards.slice(0, cardsToShow).forEach(card => {
+                    card.style.display = 'flex';
+                });
+
+                // 5. Update the Toggle Button visibility and label
+                if (matchingCards.length <= initialVisibleCount) {
+                    // Hide button if total matching cards are less than or equal to initial count
+                    toggleBtn.style.display = 'none';
+                } else {
+                    toggleBtn.style.display = 'inline-flex';
+                    if (isExpanded) {
+                        btnText.textContent = 'Show Less Articles';
+                        btnIcon.style.transform = 'rotate(180deg)';
+                    } else {
+                        btnText.textContent = 'Load More Articles';
+                        btnIcon.style.transform = 'rotate(0deg)';
+                    }
+                }
+            };
+
+            // --- Category Tab Click Event ---
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active styling from all tabs
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('bg-[#53b848]', 'text-white', 'active');
+                        btn.classList.add('bg-white', 'text-gray-700');
+                    });
+
+                    // Apply active styling to the clicked tab
+                    button.classList.remove('bg-white', 'text-gray-700');
+                    button.classList.add('bg-[#53b848]', 'text-white', 'active');
+
+                    // Update filter state & reset expansion to initial count
+                    currentFilter = button.getAttribute('data-filter');
+                    isExpanded = false;
+
+                    updateBlogDisplay();
+                });
+            });
+
+            // --- Load More / Show Less Button Click Event ---
+            toggleBtn.addEventListener('click', () => {
+                isExpanded = !isExpanded;
+                updateBlogDisplay();
+            });
+
+            // Initialize Display on Page Load
+            updateBlogDisplay();
+        });
+    </script>
+
+    <!--  -->
+    <!-- search script -->
+    <script>
+        // 1. Show/Hide the "X" when typing
+        document.addEventListener('input', function (event) {
+            if (event.target && event.target.id === 'search-input') {
+                const searchInput = event.target;
+                const searchIcon = document.getElementById('search-icon');
+                const clearBtn = document.getElementById('clear-search-btn');
+
+                if (searchInput.value.length > 0) {
+                    // Hide magnifying glass
+                    if (searchIcon) searchIcon.style.opacity = '0';
+
+                    // Show X button
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        clearBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    }
+                } else {
+                    // Show magnifying glass
+                    if (searchIcon) searchIcon.style.opacity = '1';
+
+                    // Hide X button
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                        clearBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                }
+            }
+        });
+
+        // 2. Handle the "X" click
+        document.addEventListener('click', function (event) {
+            const clearBtn = event.target.closest('#clear-search-btn');
+
+            if (clearBtn) {
+                const searchInput = document.getElementById('search-input');
+                const searchIcon = document.getElementById('search-icon');
+
+                if (searchInput) {
+                    searchInput.value = '';
+                    searchInput.focus(); // Keep cursor in the box
+                }
+
+                // Hide the "X"
+                clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                clearBtn.classList.add('opacity-0', 'pointer-events-none');
+
+                // Show the magnifying glass
+                if (searchIcon) searchIcon.style.opacity = '1';
+            }
+        });
+    </script>
+
+    <!-- Script to Handle "See more" Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const seeMoreBtn = document.getElementById('see-more-btn');
+            const hiddenProducts = document.querySelectorAll('.extra-product');
+
+            let isExpanded = false;
+
+            seeMoreBtn.addEventListener('click', () => {
+                isExpanded = !isExpanded; // Toggle state
+
+                hiddenProducts.forEach(product => {
+                    if (isExpanded) {
+                        product.classList.remove('hidden');
+                        product.classList.add('flex'); // Add flex to maintain column layout
+                    } else {
+                        product.classList.add('hidden');
+                        product.classList.remove('flex');
+                    }
+                });
+
+                // Update button text
+                seeMoreBtn.textContent = isExpanded ? 'See less' : 'See more';
+            });
+        });
+    </script>
+
+    <!-- smooth animation bar open -->
+    <script>
+        // --- 1. Global Click Logic for Menus and Search Bar ---
+        document.addEventListener('click', function (event) {
+
+            // ---------------------------------------------------------
+            // A. Mobile Hamburger Menu Toggle (Smooth Animation)
+            // ---------------------------------------------------------
+            const menuBtn = event.target.closest('#menu-icon');
+            if (menuBtn) {
+                event.preventDefault();
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                if (mobileMenu) {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenu.classList.add('flex');
+
+                        mobileMenu.style.transition = 'none';
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.transform = 'translateY(-15px)';
+
+                        void mobileMenu.offsetHeight; // Reflow
+
+                        mobileMenu.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                        mobileMenu.style.opacity = '1';
+                        mobileMenu.style.transform = 'translateY(0)';
+                    } else {
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.transform = 'translateY(-15px)';
+
+                        setTimeout(() => {
+                            if (mobileMenu.style.opacity === '0') {
+                                mobileMenu.classList.add('hidden');
+                                mobileMenu.classList.remove('flex');
+                                mobileMenu.style.transition = '';
+                                mobileMenu.style.opacity = '';
+                                mobileMenu.style.transform = '';
+                            }
+                        }, 300);
+                    }
+                }
+            }
+
+            // ---------------------------------------------------------
+            // B. Desktop Products Submenu Toggle
+            // ---------------------------------------------------------
+            const desktopProductsBtn = event.target.closest('#desktop-products-btn');
+            if (desktopProductsBtn) {
+                event.preventDefault();
+                const desktopSubmenu = document.getElementById('desktop-products-submenu');
+                if (desktopSubmenu) {
+                    desktopSubmenu.classList.toggle('hidden');
+                }
+            }
+
+            // ---------------------------------------------------------
+            // C. Mobile Products Accordion Toggle (Smooth Animation)
+            // ---------------------------------------------------------
+            const mobileProductsBtn = event.target.closest('#mobile-products-btn');
+            if (mobileProductsBtn) {
+                event.preventDefault();
+                const mobileSubmenu = document.getElementById('mobile-products-submenu');
+                const mobileIcon = document.getElementById('mobile-products-icon');
+
+                if (mobileSubmenu) {
+                    const isSubmenuHidden = mobileSubmenu.classList.contains('hidden');
+
+                    if (isSubmenuHidden) {
+                        // Step 1: Render in DOM
+                        mobileSubmenu.classList.remove('hidden');
+                        mobileSubmenu.classList.add('flex');
+
+                        // Step 2: Set invisible, collapsed starting point
+                        mobileSubmenu.style.overflow = 'hidden';
+                        mobileSubmenu.style.maxHeight = '0px';
+                        mobileSubmenu.style.opacity = '0';
+                        mobileSubmenu.style.transition = 'max-height 0.3s ease-in-out, opacity 0.3s ease-in-out';
+
+                        // Step 3: Force Reflow
+                        void mobileSubmenu.offsetHeight;
+
+                        // Step 4: Expand to exact natural height
+                        mobileSubmenu.style.maxHeight = mobileSubmenu.scrollHeight + 'px';
+                        mobileSubmenu.style.opacity = '1';
+
+                        // Clean up max-height constraint after animation finishes
+                        setTimeout(() => {
+                            if (mobileSubmenu.style.opacity === '1') {
+                                mobileSubmenu.style.maxHeight = 'none';
+                                mobileSubmenu.style.overflow = 'visible';
+                            }
+                        }, 300);
+
+                    } else {
+                        // CLOSING ANIMATION
+                        // Step 1: Explicitly set current height to give CSS a starting point
+                        mobileSubmenu.style.maxHeight = mobileSubmenu.scrollHeight + 'px';
+                        mobileSubmenu.style.overflow = 'hidden';
+
+                        // Step 2: Force Reflow
+                        void mobileSubmenu.offsetHeight;
+
+                        // Step 3: Shrink and fade
+                        mobileSubmenu.style.maxHeight = '0px';
+                        mobileSubmenu.style.opacity = '0';
+
+                        // Step 4: Wait for finish, then remove from DOM
+                        setTimeout(() => {
+                            if (mobileSubmenu.style.opacity === '0') {
+                                mobileSubmenu.classList.add('hidden');
+                                mobileSubmenu.classList.remove('flex');
+
+                                // Cleanup inline styles
+                                mobileSubmenu.style.maxHeight = '';
+                                mobileSubmenu.style.opacity = '';
+                                mobileSubmenu.style.transition = '';
+                                mobileSubmenu.style.overflow = '';
+                            }
+                        }, 300);
+                    }
+
+                    // Rotate the arrow icon
+                    if (mobileIcon) {
+                        mobileIcon.classList.toggle('rotate-180');
+                    }
+                }
+            }
+
+            // ---------------------------------------------------------
+            // D. Close Desktop Submenu if clicking outside
+            // ---------------------------------------------------------
+            const desktopSubmenu = document.getElementById('desktop-products-submenu');
+            if (desktopSubmenu && !desktopSubmenu.classList.contains('hidden')) {
+                if (!event.target.closest('#desktop-products-btn') && !event.target.closest('#desktop-products-submenu')) {
+                    desktopSubmenu.classList.add('hidden');
+                }
+            }
+
+            // ---------------------------------------------------------
+            // E. Search Bar 'X' Clear Button Logic
+            // ---------------------------------------------------------
+            const clearBtn = event.target.closest('#clear-search-btn');
+            if (clearBtn) {
+                const searchInput = document.getElementById('search-input');
+                const searchIcon = document.getElementById('search-icon');
+
+                if (searchInput) {
+                    searchInput.value = '';
+                    searchInput.focus();
+                }
+
+                clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                clearBtn.classList.add('opacity-0', 'pointer-events-none');
+
+                if (searchIcon) searchIcon.style.opacity = '1';
+            }
+        });
+
+        // --- 2. Search Bar Typing Logic ---
+        document.addEventListener('input', function (event) {
+            if (event.target && event.target.id === 'search-input') {
+                const searchInput = event.target;
+                const searchIcon = document.getElementById('search-icon');
+                const clearBtn = document.getElementById('clear-search-btn');
+
+                if (searchInput.value.length > 0) {
+                    if (searchIcon) searchIcon.style.opacity = '0';
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        clearBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    }
+                } else {
+                    if (searchIcon) searchIcon.style.opacity = '1';
+                    if (clearBtn) {
+                        clearBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                        clearBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
